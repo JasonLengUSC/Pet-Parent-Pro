@@ -1,0 +1,14 @@
+.button {
+  font: inherit;
+  background: #695265;
+  border: solid #695265;
+  color: white;
+  margin: 0;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+  text-decoration: underline;
+  text-underline-offset: 0.5em;
+}
