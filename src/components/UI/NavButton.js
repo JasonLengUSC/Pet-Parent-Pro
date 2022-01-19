@@ -3,13 +3,16 @@ import classes from "./NavButton.module.css";
 
 const NavButton = (props) => {
   return (
-    <button
-      className={classes.button}
-      type={props.type || "button"}
-      onClick={props.onClick}
-    >
-      {props.children}
-    </button>
+    <a href={props.url}>
+      {props.icon}
+      <button
+        className={classes.button}
+        type={props.type || "button"}
+        onClick={props.onClick}
+      >
+        {props.children}
+      </button>
+    </a>
   );
 };
 
