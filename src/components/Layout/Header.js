@@ -4,6 +4,7 @@ import { FaHome, FaDog, FaPeopleArrows, FaInfo } from "react-icons/fa";
 import NavButton from "../UI/NavButton";
 import classes from "./Header.module.css";
 import headerDogImage from "../../assets/header-dogs.jpeg";
+import { useState, Fragment } from "react";
 
 const headerItems = [
   {
@@ -44,14 +45,39 @@ const navBtnArr = headerItems.map((item) => {
 });
 
 const Header = (props) => {
+  const [login, setLogin] = useState(false);
   return (
     <>
       <header className={classes.header}>
-        <h1 className={classes["site-name"]}>Pet Parent Pro</h1>
-        {[...navBtnArr]}
+        <div className={classes["header-primary"]}>
+          <h1 className={classes["site-name"]}>Pet Parent Pro</h1>
+          {[...navBtnArr]}
+        </div>
+        <div className={classes["header-sign"]}>
+          {login ?
+            <NavButton>
+              <NavLink activeClassName={classes.active} to="/logout">
+                Log out
+              </NavLink>
+            </NavButton>
+            :
+            <Fragment>
+              <NavButton>
+                <NavLink activeClassName={classes.active} to="/login">
+                  Log in
+                </NavLink>
+              </NavButton>
+              <NavButton>
+                <NavLink activeClassName={classes.active} to="/register">
+                  Sign up
+                </NavLink>
+              </NavButton>
+            </Fragment>
+          }
+        </div>
       </header>
       <div className={classes["main-image"]}>
-        <img src={headerDogImage} alt="doggies"/>
+        <img src={headerDogImage} alt="doggies" />
       </div>
     </>
   );
