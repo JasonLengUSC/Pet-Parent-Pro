@@ -1,48 +1,47 @@
+import { NavLink } from "react-router-dom";
+import { FaHome, FaDog, FaPeopleArrows, FaInfo } from "react-icons/fa";
+
 import NavButton from "../UI/NavButton";
 import classes from "./Header.module.css";
-import { FaHome, FaDog, FaPeopleArrows, FaInfo } from 'react-icons/fa';
-
+import headerDogImage from "../../assets/header-dogs.jpeg";
 
 const headerItems = [
   {
     id: "link1",
-    url: "/",
+    url: "/home",
     text: "Home",
-    icon: <FaHome />
+    icon: <FaHome />,
   },
   {
     id: "link2",
     url: "/dogs",
-    text: "Dogs",
-    icon: <FaDog />
+    text: "Find Your Lovely Guests ",
+    icon: <FaDog />,
   },
   {
     id: "link3",
     url: "/sitters",
-    text: "Sitters",
-    icon: <FaPeopleArrows />
+    text: "Find Your Trusted Dog Sitters",
+    icon: <FaPeopleArrows />,
   },
   {
     id: "link4",
     url: "/about",
-    text: "About",
-    icon: <FaInfo />
+    text: "About us",
+    icon: <FaInfo />,
   },
 ];
 
 const navBtnArr = headerItems.map((item) => {
   const { id, url, text, icon } = item;
   return (
-    <NavButton
-      key={id}
-      url={url}
-      icon={icon}
-    >
-      {text}
+    <NavButton key={id} icon={icon}>
+      <NavLink activeClassName={classes.active} to={url}>
+        {text}
+      </NavLink>
     </NavButton>
   );
 });
-
 
 const Header = (props) => {
   return (
@@ -51,6 +50,9 @@ const Header = (props) => {
         <h1 className={classes["site-name"]}>Pet Parent Pro</h1>
         {[...navBtnArr]}
       </header>
+      <div className={classes["main-image"]}>
+        <img src={headerDogImage} alt="doggies"/>
+      </div>
     </>
   );
 };
