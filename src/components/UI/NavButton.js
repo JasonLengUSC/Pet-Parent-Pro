@@ -3,7 +3,7 @@ import classes from "./NavButton.module.css";
 
 const NavButton = (props) => {
   return (
-    <a href={props.url}>
+    <div>
       {props.icon}
       <button
         className={classes.button}
@@ -12,7 +12,7 @@ const NavButton = (props) => {
       >
         {props.children}
       </button>
-    </a>
+    </div>
   );
 };
 

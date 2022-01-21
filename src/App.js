@@ -5,6 +5,9 @@ import Dogs from "./pages/Dogs";
 import Sitters from "./pages/Sitters";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Logout from './pages/Logout';
 
 import Header from "./components/Layout/Header";
 
@@ -27,6 +30,15 @@ function App() {
         </Route>
         <Route path="/About">
           <About />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/logout">
+          <Logout />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
         <Route path="*">
           <NotFound />
