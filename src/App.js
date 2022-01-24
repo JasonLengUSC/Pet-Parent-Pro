@@ -1,13 +1,13 @@
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Dogs from "./pages/Dogs";
-import Sitters from "./pages/Sitters";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Logout from './pages/Logout';
+import Home from "./pages/HeaderPages/Home";
+import Dogs from "./pages/HeaderPages/Dogs";
+import Sitters from "./pages/HeaderPages/Sitters";
+import About from "./pages/HeaderPages/About";
+import Register from "./pages/HeaderPages/Register";
+import Login from "./pages/HeaderPages/Login";
+import Logout from "./pages/HeaderPages/Logout";
+import NotFound from "./pages/NotFound"
 
 import Header from "./components/Layout/Header";
 
