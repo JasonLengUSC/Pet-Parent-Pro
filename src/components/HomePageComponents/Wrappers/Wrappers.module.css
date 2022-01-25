@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    clear: both;
+    margin-bottom: 4em;
+  }
+
+  .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    float: left;
+  }

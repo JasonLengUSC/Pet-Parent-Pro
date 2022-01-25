@@ -1,6 +1,6 @@
 import { React, Fragment } from "react";
 import { useState } from "react/cjs/react.development";
-import SitterForm from "../components/SitterForm/SitterForm";
+import SitterForm from "../../forms/SitterForm";
 
 const userInfo = {
   username: "TestUser01",
