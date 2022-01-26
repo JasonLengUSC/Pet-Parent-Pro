@@ -8,6 +8,8 @@ import Register from "./pages/HeaderPages/Register";
 import Login from "./pages/HeaderPages/Login";
 import Logout from "./pages/HeaderPages/Logout";
 import NotFound from "./pages/NotFound"
+import SitterForm from "./forms/SitterForm";
+import DogForm from "./forms/DogForm";
 
 import Header from "./components/Layout/Header";
 
@@ -25,8 +27,14 @@ function App() {
         <Route path="/Dogs">
           <Dogs />
         </Route>
+        <Route path="/BecomeSitters">
+          <SitterForm />
+        </Route>
         <Route path="/Sitters">
           <Sitters />
+        </Route>
+        <Route path="/PostDogs">
+          <DogForm />
         </Route>
         <Route path="/About">
           <About />

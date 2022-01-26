@@ -1,5 +1,4 @@
-import { React, Fragment } from "react";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import SitterForm from "../../forms/SitterForm";
 
 const userInfo = {
@@ -15,15 +14,14 @@ const Dogs = () => {
     setShowSitterForm(newStatus);
   };
   return (
-    <Fragment>
+    <>
       <h1>The Dogs page</h1>
-      <p>Can't find the dog you want? Post your own info!</p>
-      <button onClick={toggleSitterForm}>{showSitterForm ? "Close Form" : "Open Form"}</button>
-      {showSitterForm ? <SitterForm
-        userInfo={userInfo}
-      /> : <></>
-      }
-    </Fragment>
+      <p>Didn't find the dog you want? Post your own info!</p>
+      <button onClick={toggleSitterForm}>
+        {showSitterForm ? "Close Form" : "Open Form"}
+      </button>
+      {showSitterForm ? <SitterForm userInfo={userInfo} /> : <></>}
+    </>
   );
 };
 
