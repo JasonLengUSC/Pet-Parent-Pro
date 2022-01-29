@@ -7,7 +7,9 @@ import About from "./pages/HeaderPages/About";
 import Register from "./pages/HeaderPages/Register";
 import Login from "./pages/HeaderPages/Login";
 import Logout from "./pages/HeaderPages/Logout";
-import NotFound from "./pages/NotFound"
+import NotFound from "./pages/NotFound";
+import SitterForm from "./forms/SitterForm";
+import DogForm from "./forms/DogForm";
 
 import Header from "./components/Layout/Header";
 

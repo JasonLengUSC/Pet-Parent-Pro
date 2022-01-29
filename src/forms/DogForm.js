@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SitterForm = (props) => {
+const DogForm = (props) => {
   const currentdate = new Date();
   const timeString =
     currentdate.getFullYear() +
@@ -13,14 +13,14 @@ const SitterForm = (props) => {
     ":" +
     currentdate.getMinutes();
   const [location, setLocation] = useState("");
-  const [size, setSize] = useState("any");
+  const [breed, setBreed] = useState("any");
   const [description, setDescription] = useState("");
 
   const changeLocation = (e) => {
     setLocation(e.target.value);
   };
-  const changeSize = (e) => {
-    setSize(e.target.value);
+  const changeBreed = (e) => {
+    setBreed(e.target.value);
   };
   const changeDescription = (e) => {
     setDescription(e.target.value);
@@ -31,13 +31,12 @@ const SitterForm = (props) => {
       rating: props.userInfo.rating,
       time: timeString,
       location: location,
-      size: size,
+      breed: breed,
       description: description,
     };
     console.log("Submitted data: ");
     console.log(formData);
   };
-
   return (
     <>
       <p>Name: {props.userInfo.username}</p>
@@ -45,19 +44,14 @@ const SitterForm = (props) => {
       <p>Rating: {props.userInfo.rating}/5</p>
       <label htmlFor="location">Location: </label>
       <input type="text" id="location" required onChange={changeLocation} />
-      <label htmlFor="size">Preferred Size: </label>
-      <select id="size" defaultValue="any" required onChange={changeSize}>
-        <option value="any">Any</option>
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-      </select>
+      <label htmlFor="breed">Breed: </label>
+      <input id="breed" defaultValue="any" required onChange={changeBreed} />
       <label htmlFor="description">Description: </label>
       <textarea
         id="description"
         rows="5"
         cols="50"
-        placeholder="Write something about yourself."
+        placeholder="Write something about your dog."
         onChange={changeDescription}
       />
       <button onClick={submitSitterForm}>Submit</button>
@@ -65,4 +59,4 @@ const SitterForm = (props) => {
   );
 };
 
-export default SitterForm;
+export default DogForm;
