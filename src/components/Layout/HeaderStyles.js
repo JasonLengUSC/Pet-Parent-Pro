@@ -53,6 +53,7 @@ const SiteName = styled.h1`
     margin-left: 20px;
     margin-right: 40px;
     font-size: x-large;
+    cursor: pointer;
 `
 
 const NavLinkStyled = styled(NavLink)`
