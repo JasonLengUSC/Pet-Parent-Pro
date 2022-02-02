@@ -1,5 +1,6 @@
 import { FaHome, FaDog, FaPeopleArrows, FaInfo } from "react-icons/fa";
 
+import { useHistory } from "react-router-dom";
 import { HeaderStyled, HeaderPrimary, HeaderSign, SiteName, NavLinkStyled, MainImgWrapper } from "./HeaderStyles";
 import NavButton from "../UI/NavButton";
 import headerDogImage from "../../assets/header-dogs.jpeg";
@@ -43,13 +44,21 @@ const navBtnArr = headerItems.map((item) => {
   );
 });
 
+
 const Header = (props) => {
+  let hisotry = useHistory();
+
+  const changeIconRouteHandler = () => {
+    const newPath = "/Home";
+    hisotry.push(newPath);
+  };
+
   const [login, setLogin] = useState(false);
   return (
     <>
       <HeaderStyled>
         <HeaderPrimary>
-          <SiteName>Pet Parent Pro</SiteName>
+          <SiteName onClick={changeIconRouteHandler}>Pet Parent Pro</SiteName>
           {[...navBtnArr]}
         </HeaderPrimary>
         <HeaderSign>
