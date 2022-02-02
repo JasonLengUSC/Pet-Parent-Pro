@@ -1,17 +1,16 @@
 import React from "react";
-import classes from "./NavButton.module.css";
+import { ButtonStyled } from "./NavBtnStyles";
 
 const NavButton = (props) => {
   return (
     <div>
       {props.icon}
-      <button
-        className={classes.button}
+      <ButtonStyled
         type={props.type || "button"}
         onClick={props.onClick}
       >
         {props.children}
-      </button>
+      </ButtonStyled>
     </div>
   );
 };

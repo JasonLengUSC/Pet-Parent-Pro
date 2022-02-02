@@ -1,8 +1,8 @@
-import classes from "./Wrappers.module.css";
+import { HomePageBtnWrapper } from "./HomeWrapperStyles";
 
 const ButtonWrapper = (props) => {
   return (
-      <main className={classes.wrapper}>{props.children}</main>
+    <HomePageBtnWrapper>{props.children}</HomePageBtnWrapper>
   );
 };
 
