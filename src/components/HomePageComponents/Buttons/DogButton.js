@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
-
-import classes from "./HomePageButtons.module.css";
+import { HomePageBtn } from "./HomeBtnStyles";
 
 const DogIcon = () => {
   let hisotry = useHistory();
@@ -11,9 +10,9 @@ const DogIcon = () => {
   };
 
   return (
-    <button className={classes.button} onClick={changeDogRouteHandler}>
+    <HomePageBtn onClick={changeDogRouteHandler}>
       Leave Furry Friends in Good Hands!
-    </button>
+    </HomePageBtn>
   );
 };
 

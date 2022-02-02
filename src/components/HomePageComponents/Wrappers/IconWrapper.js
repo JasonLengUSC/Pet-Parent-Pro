@@ -1,17 +1,17 @@
 import dogIcon from "../../../assets/dog-icon.jpeg";
 import sitterIcon from "../../../assets/dog-sitter-icon.png";
 
-import classes from "./Wrappers.module.css";
+import { HomePageIconWrapper } from "./HomeWrapperStyles";
 
 const IconWrapper = () => {
   return (
     <>
-      <div className={classes.icon}>
+      <HomePageIconWrapper>
         <img src={sitterIcon} alt="link to dog page" />
-      </div>
-      <div className={classes.icon}>
+      </HomePageIconWrapper>
+      <HomePageIconWrapper>
         <img src={dogIcon} alt="link to sitter page" />
-      </div>
+      </HomePageIconWrapper>
     </>
   );
 };

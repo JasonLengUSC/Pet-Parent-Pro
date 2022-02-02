@@ -1,8 +1,7 @@
-import { NavLink } from "react-router-dom";
 import { FaHome, FaDog, FaPeopleArrows, FaInfo } from "react-icons/fa";
 
+import { HeaderStyled, HeaderPrimary, HeaderSign, SiteName, NavLinkStyled, MainImgWrapper } from "./HeaderStyles";
 import NavButton from "../UI/NavButton";
-import classes from "./Header.module.css";
 import headerDogImage from "../../assets/header-dogs.jpeg";
 import { useState, Fragment } from "react";
 
@@ -37,9 +36,9 @@ const navBtnArr = headerItems.map((item) => {
   const { id, url, text, icon } = item;
   return (
     <NavButton key={id} icon={icon}>
-      <NavLink activeClassName={classes.active} to={url}>
+      <NavLinkStyled activeClassName="NavLinkClassName" to={url}>
         {text}
-      </NavLink>
+      </NavLinkStyled>
     </NavButton>
   );
 });
@@ -48,37 +47,37 @@ const Header = (props) => {
   const [login, setLogin] = useState(false);
   return (
     <>
-      <header className={classes.header}>
-        <div className={classes["header-primary"]}>
-          <h1 className={classes["site-name"]}>Pet Parent Pro</h1>
+      <HeaderStyled>
+        <HeaderPrimary>
+          <SiteName>Pet Parent Pro</SiteName>
           {[...navBtnArr]}
-        </div>
-        <div className={classes["header-sign"]}>
+        </HeaderPrimary>
+        <HeaderSign>
           {login ?
             <NavButton>
-              <NavLink activeClassName={classes.active} to="/logout">
+              <NavLinkStyled activeClassName="NavLinkClassName" to="/logout">
                 Log out
-              </NavLink>
+              </NavLinkStyled>
             </NavButton>
             :
             <Fragment>
               <NavButton>
-                <NavLink activeClassName={classes.active} to="/login">
+                <NavLinkStyled activeClassName="NavLinkClassName" to="/login">
                   Log in
-                </NavLink>
+                </NavLinkStyled>
               </NavButton>
               <NavButton>
-                <NavLink activeClassName={classes.active} to="/register">
+                <NavLinkStyled activeClassName="NavLinkClassName" to="/register">
                   Sign up
-                </NavLink>
+                </NavLinkStyled>
               </NavButton>
             </Fragment>
           }
-        </div>
-      </header>
-      <div className={classes["main-image"]}>
+        </HeaderSign>
+      </HeaderStyled>
+      <MainImgWrapper>
         <img src={headerDogImage} alt="doggies" />
-      </div>
+      </MainImgWrapper>
     </>
   );
 };
