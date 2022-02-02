@@ -43,7 +43,7 @@ const DogForm = (props) => {
       <p>Date: {timeString}</p>
       <p>Rating: {props.userInfo.rating}/5</p>
       <label htmlFor="location">Location: </label>
-      <input type="text" id="location" required onChange={changeLocation} />
+      <input id="location" type="text" required onChange={changeLocation} />
       <label htmlFor="breed">Breed: </label>
       <input id="breed" defaultValue="any" required onChange={changeBreed} />
       <label htmlFor="description">Description: </label>
@@ -54,6 +54,9 @@ const DogForm = (props) => {
         placeholder="Write something about your dog."
         onChange={changeDescription}
       />
+      <label htmlFor="upload"> Choose the File to upload: </label>
+      <input id="upload" type="file" />
+
       <button onClick={submitSitterForm}>Submit</button>
     </>
   );
