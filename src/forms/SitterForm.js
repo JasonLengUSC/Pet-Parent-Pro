@@ -1,67 +1,171 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import moment from "moment";
+
+import { ButtonStyled } from "./SitterFormStyles";
+import { Form, Input, Select, Rate, DatePicker } from 'antd';
+const { Option } = Select;
+const { TextArea } = Input;
+const { RangePicker } = DatePicker;
+
+const layout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 8 },
+};
+const tailLayout = {
+  wrapperCol: { offset: 4, span: 8 },
+};
 
 const SitterForm = (props) => {
   const currentdate = new Date();
-  const timeString =
-    currentdate.getFullYear() +
-    "/" +
-    (currentdate.getMonth() + 1) +
-    "/" +
-    currentdate.getDate() +
-    " " +
-    currentdate.getHours() +
-    ":" +
-    currentdate.getMinutes();
+  const timeString = currentdate.toLocaleString();
   const [location, setLocation] = useState("");
   const [size, setSize] = useState("any");
   const [description, setDescription] = useState("");
+  const [dateRange, setDateRange] = useState([moment(), moment()]);
 
   const changeLocation = (e) => {
     setLocation(e.target.value);
   };
-  const changeSize = (e) => {
-    setSize(e.target.value);
+  const changeSize = (value) => {
+    setSize(value);
   };
   const changeDescription = (e) => {
     setDescription(e.target.value);
+  };
+  const changeDateRange = (dates) => {
+    setDateRange([...dates]);
   };
   const submitSitterForm = () => {
     const formData = {
       name: props.userInfo.username,
       rating: props.userInfo.rating,
       time: timeString,
-      location: location,
-      size: size,
-      description: description,
+      location,
+      size,
+      description,
+      dateRange,
     };
     console.log("Submitted data: ");
     console.log(formData);
   };
 
   return (
-    <>
-      <p>Name: {props.userInfo.username}</p>
-      <p>Date: {timeString}</p>
-      <p>Rating: {props.userInfo.rating}/5</p>
-      <label htmlFor="location">Location: </label>
-      <input type="text" id="location" required onChange={changeLocation} />
-      <label htmlFor="size">Preferred Size: </label>
-      <select id="size" defaultValue="any" required onChange={changeSize}>
-        <option value="any">Any</option>
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-      </select>
-      <label htmlFor="description">Description: </label>
-      <textarea
-        id="description"
-        rows="5"
-        cols="50"
-        placeholder="Write something about yourself."
-        onChange={changeDescription}
-      />
-      <button onClick={submitSitterForm}>Submit</button>
-    </>
+    <Form {...layout} onFinish={submitSitterForm}>
+      <Form.Item
+        name="username"
+        label="Username"
+        rules={[
+          {
+            required: true,
+            message: "Please enter your username!",
+          },
+        ]}
+        initialValue={props.userInfo.username}
+      >
+        <Input disabled />
+      </Form.Item>
+      <Form.Item
+        name="date"
+        label="Date"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+        initialValue={timeString}
+      >
+        <Input disabled />
+      </Form.Item>
+      <Form.Item
+        name="rating"
+        label="User Rating"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+        initialValue={props.userInfo.rating}
+      >
+        <Rate disabled />
+      </Form.Item>
+      <Form.Item
+        name="location"
+        label="Location"
+        rules={[
+          {
+            required: true,
+            message: "Please enter your location!",
+          },
+        ]}
+      >
+        <Input
+          placeholder="Enter your location here."
+          onChange={changeLocation}
+        />
+      </Form.Item>
+      <Form.Item
+        name="dateRange"
+        label="Preferred Dates"
+        rules={[
+          {
+            required: true,
+            message: "Please select a range of dates",
+          },
+        ]}
+        initialValue={[...dateRange]}
+      >
+        <RangePicker
+          onCalendarChange={changeDateRange}
+        />
+      </Form.Item>
+      <Form.Item
+        name="size"
+        label="Preferred Size"
+        rules={[
+          {
+            required: true,
+            message: "Please choose a dog size or select \"Any\"",
+          },
+        ]}
+      >
+        <Select
+          placeholder='Choose a dog size or select "Any"'
+          allowClear
+          onChange={changeSize}
+        >
+          <Option value="any">Any</Option>
+          <Option value="small">Small</Option>
+          <Option value="medium">Medium</Option>
+          <Option value="large">Large</Option>
+        </Select>
+      </Form.Item>
+      <Form.Item
+        name="description"
+        label="Description"
+        rules={[
+          {
+            required: true,
+            message: "Say something about yourself",
+          },
+        ]}
+      >
+        <TextArea
+          rows={4}
+          showCount
+          maxLength={400}
+          placeholder="Say something about yourself here."
+          onChange={changeDescription}
+        />
+      </Form.Item>
+      <Form.Item {...tailLayout}>
+        <ButtonStyled type="primary" htmlType="submit">
+          Submit
+        </ButtonStyled>
+        <ButtonStyled htmlType="button">
+          Reset
+        </ButtonStyled>
+      </Form.Item>
+    </Form>
   );
 };
 
