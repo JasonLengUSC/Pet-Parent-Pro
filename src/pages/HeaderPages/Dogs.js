@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import SitterForm from "../../forms/SitterForm";
-import { Card, Row, Col } from 'antd';
-const { Meta } = Card;
+import { Card, Row, Col, Image } from 'antd';
 
 const userInfo = {
   username: "TestUser01",
@@ -32,12 +31,12 @@ const Dogs = () => {
   return (
     <>
       <h1>The Dogs page</h1>
-      <p>Didn't find the dog you want? Post your own info!</p>
+      <p>Cannot find the dog you want from below? Post your own info!</p>
       <button onClick={toggleSitterForm}>
-        {showSitterForm ? "Close Form" : "Open Form"}
+        {showSitterForm ? "Close Form" : "Fill out My Info"}
       </button>
       {showSitterForm ? <SitterForm userInfo={userInfo} /> : <></>}
-      <Row>
+      <Row gutter={[16, 16]}>
         {dogImages.map((imgLink, index) => {
           return (
             <Col key={"dogCard" + index} span={24 / 3}>
@@ -46,7 +45,12 @@ const Dogs = () => {
                 title={"Dog Post " + index}
                 style={{ width: 480 }}
                 cover={
-                  <img alt="dogImg" src={imgLink} />
+                  // <img alt="dogImg" src={imgLink} />
+                  <Image
+                    width={480}
+                    height={480}
+                    src={imgLink}
+                  />
                 }
               >
                 <p>Username: TestUser {index}</p>
