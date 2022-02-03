@@ -16,6 +16,7 @@ const tailLayout = {
 };
 
 const SitterForm = (props) => {
+  const [form] = Form.useForm();
   const currentdate = new Date();
   const timeString = currentdate.toLocaleString();
   const [location, setLocation] = useState("");
@@ -49,8 +50,12 @@ const SitterForm = (props) => {
     console.log(formData);
   };
 
+  const resetForm = () => {
+    form.resetFields();
+  };
+
   return (
-    <Form {...layout} onFinish={submitSitterForm}>
+    <Form {...layout} form={form} onFinish={submitSitterForm}>
       <Form.Item
         name="username"
         label="Username"
@@ -161,7 +166,7 @@ const SitterForm = (props) => {
         <ButtonStyled type="primary" htmlType="submit">
           Submit
         </ButtonStyled>
-        <ButtonStyled htmlType="button">
+        <ButtonStyled htmlType="button" onClick={resetForm}>
           Reset
         </ButtonStyled>
       </Form.Item>
