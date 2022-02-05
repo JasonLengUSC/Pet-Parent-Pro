@@ -3,8 +3,17 @@ import moment from "moment";
 
 import { ButtonStyled } from "./DogFormStyles";
 
-import { Form, Input, Select, Rate, DatePicker, Upload, Button } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import {
+  Form,
+  Input,
+  Select,
+  Rate,
+  DatePicker,
+  // message,
+  // Upload,
+  // Button,
+} from "antd";
+// import { UploadOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -18,6 +27,31 @@ const tailLayout = {
   wrapperCol: { offset: 4, span: 8 },
 };
 
+// const normFile = (e) => {
+//   if (Array.isArray(e)) {
+//     return e;
+//   }
+//   return e && e.fileList;
+// };
+
+// const getBase64 = (img, callback) => {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", () => callback(reader.result));
+//   reader.readAsDataURL(img);
+// };
+
+// const beforeUploadHandler = (file) => {
+//   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+//   if (!isJpgOrPng) {
+//     message.error("You can only upload JPG/PNG file!");
+//   }
+//   const isLt2M = file.size / 1024 / 1024 < 2;
+//   if (!isLt2M) {
+//     message.error("Image must smaller than 2MB!");
+//   }
+//   return isJpgOrPng && isLt2M;
+// };
+
 const DogForm = (props) => {
   const [form] = Form.useForm();
   const currentdate = new Date();
@@ -26,12 +60,13 @@ const DogForm = (props) => {
   const [breed, setBreed] = useState("any");
   const [description, setDescription] = useState("");
   const [dateRange, setDateRange] = useState([moment(), moment()]);
+  // const [imgUrl, setImgUrl] = useState("");
 
   const changeLocation = (e) => {
     setLocation(e.target.value);
   };
-  const changeBreed = (e) => {
-    setBreed(e.target.value);
+  const changeBreed = (value) => {
+    setBreed(value);
   };
   const changeDescription = (e) => {
     setDescription(e.target.value);
@@ -39,6 +74,11 @@ const DogForm = (props) => {
   const changeDateRange = (dates) => {
     setDateRange([...dates]);
   };
+  // const uploadHandler = (info) => {
+  //   getBase64(info.file.originFileObj, (imageUrl) => {
+  //     setImgUrl(imageUrl);
+  //   });
+  // };
   const submitFormHandler = () => {
     const formData = {
       name: props.userInfo.username,
@@ -307,7 +347,7 @@ const DogForm = (props) => {
           onChange={changeDescription}
         />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         name="Attached File"
         label="Attachment"
         rules={[
@@ -316,11 +356,17 @@ const DogForm = (props) => {
             message: "Upload pics of your dog",
           },
         ]}
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
       >
-        <Upload {...props}>
+        <Upload 
+        beforeUpload={beforeUploadHandler} 
+        onChange={uploadHandler}
+        action="~/Desktop"
+        >
           <Button icon={<UploadOutlined />}>Upload</Button>
         </Upload>
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item {...tailLayout}>
         <ButtonStyled type="primary" htmlType="submit">
           Submit

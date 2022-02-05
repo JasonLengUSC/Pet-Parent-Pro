@@ -2,7 +2,7 @@ import { useState } from "react";
 import DogForm from "../../forms/DogForm";
 
 const userInfo = {
-  useName: "TestUser01",
+  username: "TestUser01",
   rating: 5,
 };
 
