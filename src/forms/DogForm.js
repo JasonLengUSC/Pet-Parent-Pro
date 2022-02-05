@@ -72,7 +72,9 @@ const DogForm = (props) => {
     setDescription(e.target.value);
   };
   const changeDateRange = (dates) => {
-    setDateRange([...dates]);
+    if (dates) {
+      setDateRange([...dates]);
+    }
   };
   // const uploadHandler = (info) => {
   //   getBase64(info.file.originFileObj, (imageUrl) => {

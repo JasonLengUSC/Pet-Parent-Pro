@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 
 import { ButtonStyled } from "./SitterFormStyles";
-import { Form, Input, Select, Rate, DatePicker } from 'antd';
+import { Form, Input, Select, Rate, DatePicker } from "antd";
 const { Option } = Select;
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
@@ -34,7 +34,9 @@ const SitterForm = (props) => {
     setDescription(e.target.value);
   };
   const changeDateRange = (dates) => {
-    setDateRange([...dates]);
+    if (dates) {
+      setDateRange([...dates]);
+    }
   };
   const submitSitterForm = () => {
     const formData = {
@@ -119,9 +121,7 @@ const SitterForm = (props) => {
         ]}
         initialValue={[...dateRange]}
       >
-        <RangePicker
-          onCalendarChange={changeDateRange}
-        />
+        <RangePicker onCalendarChange={changeDateRange} />
       </Form.Item>
       <Form.Item
         name="size"
@@ -129,7 +129,7 @@ const SitterForm = (props) => {
         rules={[
           {
             required: true,
-            message: "Please choose a dog size or select \"Any\"",
+            message: 'Please choose a dog size or select "Any"',
           },
         ]}
       >
