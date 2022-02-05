@@ -1,9 +1,9 @@
 import { useState } from "react";
 import moment from "moment";
 
-import { UploadButton, ButtonStyled } from "./DogFormStyles";
+import { ButtonStyled } from "./DogFormStyles";
 
-import { Form, Input, Select, Rate, DatePicker, Upload } from "antd";
+import { Form, Input, Select, Rate, DatePicker, Upload, Button } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
@@ -318,7 +318,7 @@ const DogForm = (props) => {
         ]}
       >
         <Upload {...props}>
-          <UploadButton icon={<UploadOutlined />}>Upload</UploadButton>
+          <Button icon={<UploadOutlined />}>Upload</Button>
         </Upload>
       </Form.Item>
       <Form.Item {...tailLayout}>
