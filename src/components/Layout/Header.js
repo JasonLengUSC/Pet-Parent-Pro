@@ -61,7 +61,7 @@ const Header = (props) => {
   let hisotry = useHistory();
 
   const changeIconRouteHandler = () => {
-    const newPath = "/Home";
+    const newPath = "/home";
     hisotry.push(newPath);
   };
 
