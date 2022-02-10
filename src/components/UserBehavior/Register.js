@@ -43,7 +43,6 @@ const Register = (props) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
     const formData = {
       username,
       email,
@@ -153,7 +152,7 @@ const Register = (props) => {
             },
           ]}
         >
-          <Input
+          <Input.Password
             placeholder="Enter your password here."
             onChange={changePasswordHandler}
           />
@@ -168,7 +167,7 @@ const Register = (props) => {
             },
           ]}
         >
-          <Input
+          <Input.Password
             placeholder="Enter your password again."
             onChange={changeConfirmedPasswordHandler}
           />

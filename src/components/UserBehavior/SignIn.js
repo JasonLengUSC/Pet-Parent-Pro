@@ -27,7 +27,6 @@ const Login = (props) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
     const formData = {
       username,
       password,
@@ -65,7 +64,7 @@ const Login = (props) => {
             },
           ]}
         >
-          <Input
+          <Input.Password
             placeholder="Enter your password here."
             onChange={changePasswordHandler}
           />
