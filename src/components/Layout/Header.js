@@ -1,10 +1,23 @@
 import { FaHome, FaDog, FaPeopleArrows, FaInfo } from "react-icons/fa";
 
-import { useHistory } from "react-router-dom";
-import { HeaderStyled, HeaderPrimary, HeaderSign, SiteName, NavLinkStyled, MainImgWrapper } from "./HeaderStyles";
-import NavButton from "../UI/NavButton";
-import headerDogImage from "../../assets/header-dogs.jpeg";
 import { useState, Fragment } from "react";
+import { useHistory } from "react-router-dom";
+
+import {
+  HeaderStyled,
+  HeaderPrimary,
+  HeaderSign,
+  SiteName,
+  NavLinkStyled,
+  MainImgWrapper,
+} from "./HeaderStyles";
+
+import NavButton from "../UI/NavButton";
+import SignIn from "../UserBehavior/SignIn";
+import Register from "../UserBehavior/Register";
+import SignOut from "../UserBehavior/SignOut";
+
+import headerDogImage from "../../assets/header-dogs.jpeg";
 
 const headerItems = [
   {
@@ -44,13 +57,39 @@ const navBtnArr = headerItems.map((item) => {
   );
 });
 
-
 const Header = (props) => {
   let hisotry = useHistory();
 
   const changeIconRouteHandler = () => {
-    const newPath = "/Home";
+    const newPath = "/home";
     hisotry.push(newPath);
+  };
+
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
+  const showLoginFormHandler = () => {
+    setShowLoginForm(true);
+  };
+  const hideLoginFormHanlder = () => {
+    setShowLoginForm(false);
+  };
+
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+
+  const showRegisterFormHandler = () => {
+    setShowRegisterForm(true);
+  };
+  const hideRegisterFormHanlder = () => {
+    setShowRegisterForm(false);
+  };
+
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const showLogoutModalHandler = () => {
+    setShowLogoutModal(true);
+  };
+  const hideLogoutModalHanlder = () => {
+    setShowLogoutModal(false);
   };
 
   const [login, setLogin] = useState(false);
@@ -62,26 +101,21 @@ const Header = (props) => {
           {[...navBtnArr]}
         </HeaderPrimary>
         <HeaderSign>
-          {login ?
-            <NavButton>
-              <NavLinkStyled activeClassName="NavLinkClassName" to="/logout">
-                Log out
-              </NavLinkStyled>
-            </NavButton>
-            :
-            <Fragment>
-              <NavButton>
-                <NavLinkStyled activeClassName="NavLinkClassName" to="/login">
-                  Log in
-                </NavLinkStyled>
-              </NavButton>
-              <NavButton>
-                <NavLinkStyled activeClassName="NavLinkClassName" to="/register">
-                  Sign up
-                </NavLinkStyled>
-              </NavButton>
-            </Fragment>
-          }
+          {login ? (
+            <>
+            <NavButton onClick={showLogoutModalHandler}>Sign Out</NavButton>
+            {showLogoutModal && <SignOut onClose={hideLogoutModalHanlder} />}
+            </>
+          ) : (
+            <>
+              <NavButton onClick={showLoginFormHandler}>Sign In</NavButton>
+              {showLoginForm && <SignIn onClose={hideLoginFormHanlder} />}
+              <NavButton onClick={showRegisterFormHandler}>Sign Up</NavButton>
+              {showRegisterForm && (
+                <Register onClose={hideRegisterFormHanlder} />
+              )}
+            </>
+          )}
         </HeaderSign>
       </HeaderStyled>
       <MainImgWrapper>

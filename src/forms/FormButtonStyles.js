@@ -4,6 +4,7 @@ const SubmitButton = styled.button`
   width: 100%;
   max-width: 6em;
   font: inherit;
+  font-weight: bold;
   background: #887485;
   border: solid #887485;
   color: white;

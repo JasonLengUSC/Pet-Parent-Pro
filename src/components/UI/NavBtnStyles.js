@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const ButtonStyled = styled.button`
     font: inherit;
+    font-weight: bold;
+    font-size: 15px;
     background: #695265;
     border: solid #695265;
     color: white;

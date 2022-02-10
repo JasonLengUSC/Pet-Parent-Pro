@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SignUpSec = styled.section`
+const ResetSec = styled.section`
   margin: auto;
   width: 100%;
   max-width: 40rem;
@@ -58,4 +58,4 @@ const BlankDiv = styled.div`
   height: 100px;
 `;
 
-export { SignUpSec, InputDiv, SubmitButton, BlankDiv };
+export { ResetSec, InputDiv, SubmitButton, BlankDiv };
