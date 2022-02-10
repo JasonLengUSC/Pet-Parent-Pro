@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DogForm from "../../forms/DogForm";
 
+import { WrapDiv, CardStyled } from "./DogSitterStyles";
+
 const userInfo = {
   username: "TestUser01",
   rating: 5,
@@ -9,20 +11,25 @@ const userInfo = {
 const Sitters = () => {
   const [showDogForm, setShowDogForm] = useState(false);
 
-  const toggleDogForm = () => {
-    const newStatus = !showDogForm;
-    setShowDogForm(newStatus);
+  const showDogFormHanlder = () => {
+    setShowDogForm(true);
+  };
+
+  const hideDogFormHanlder = () => {
+    setShowDogForm(false);
   };
 
   return (
-    <>
-      <h1>The Sitters page</h1>
-      <p>Didn't find the sitter you want? Post your own info!</p>
-      <button onClick={toggleDogForm}>
-        {showDogForm ? "Close Form" : "Open Form"}
-      </button>
-      {showDogForm ? <DogForm userInfo={userInfo} /> : <></>}
-    </>
+    <WrapDiv>
+      <CardStyled>
+        <p>Didn't find the sitter you want? </p>
+        <p>Post your own info!</p>
+        <button onClick={showDogFormHanlder}>Fill out My Info</button>
+        {showDogForm && (
+          <DogForm userInfo={userInfo} onClose={hideDogFormHanlder} />
+        )}
+      </CardStyled>
+    </WrapDiv>
   );
 };
 
