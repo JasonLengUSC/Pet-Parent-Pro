@@ -14,7 +14,7 @@ const layout = {
   wrapperCol: { span: 16 },
 };
 const tailLayout = {
-  wrapperCol: { offset: 6, span: 25 },
+  wrapperCol: { offset: 6, span: 16 },
 };
 
 const SitterForm = (props) => {
@@ -166,9 +166,7 @@ const SitterForm = (props) => {
           />
         </Form.Item>
         <Form.Item {...tailLayout}>
-          <SubmitButton type="button" htmlType="submit">
-            Submit
-          </SubmitButton>
+          <SubmitButton htmlType="submit">Submit</SubmitButton>
           <ButtonStyled htmlType="button" onClick={resetForm}>
             Reset
           </ButtonStyled>

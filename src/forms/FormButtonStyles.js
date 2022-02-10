@@ -8,7 +8,7 @@ const SubmitButton = styled.button`
   border: solid #887485;
   color: white;
   margin-top: 1em;
-  margin-right: 3em;
+  margin-right: 2em;
   cursor: pointer;
   &:hover,
   &:active {
@@ -24,7 +24,7 @@ const ButtonStyled = styled.button`
   border: solid #b0b3b8;
   color: black;
   margin-top: 1em;
-  margin-right: 3em;
+  margin-right: 2em;
   cursor: pointer;
   &:hover,
   &:active {
