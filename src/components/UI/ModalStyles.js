@@ -32,6 +32,12 @@ const ModalStyled = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: ${SlideDown} 300ms ease-out forwards;
+  & h1 {
+    color: #887485;
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
   @media (min-width: 768px) {
     width: 40rem;
     left: calc(50% - 20rem);
