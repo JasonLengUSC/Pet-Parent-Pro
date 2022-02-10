@@ -1,4 +1,3 @@
-import React from "react";
 import { ButtonStyled } from "./NavBtnStyles";
 
 const NavButton = (props) => {

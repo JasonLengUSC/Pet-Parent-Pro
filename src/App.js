@@ -11,6 +11,7 @@ import Logout from "./pages/HeaderPages/Logout";
 import NotFound from "./pages/NotFound";
 
 import Header from "./components/Layout/Header";
+
 function App() {
   return (
     <>
@@ -22,13 +23,13 @@ function App() {
         <Route path="/home" exact>
           <Home />
         </Route>
-        <Route path="/Dogs">
+        <Route path="/dogs">
           <Dogs />
         </Route>
-        <Route path="/Sitters">
+        <Route path="/sitters">
           <Sitters />
         </Route>
-        <Route path="/About">
+        <Route path="/about">
           <About />
         </Route>
         <Route path="/login">
