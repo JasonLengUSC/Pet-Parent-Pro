@@ -14,7 +14,6 @@ const SubmitButton = styled.button`
   &:hover,
   &:active {
     color: white;
-    font-weight: bold;
     background: #695265;
     border-color: #695265;
   }

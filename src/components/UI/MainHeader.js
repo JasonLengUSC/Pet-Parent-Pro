@@ -9,15 +9,13 @@ import {
   HeaderSign,
   SiteName,
   NavLinkStyled,
-  MainImgWrapper,
 } from "./HeaderStyles";
 
-import NavButton from "../UI/NavButton";
+import NavButton from "./NavButton";
 import SignIn from "../UserBehavior/SignIn";
 import Register from "../UserBehavior/Register";
 import SignOut from "../UserBehavior/SignOut";
 
-import headerDogImage from "../../assets/header-dogs.jpeg";
 
 const headerItems = [
   {
@@ -118,9 +116,6 @@ const Header = (props) => {
           )}
         </HeaderSign>
       </HeaderStyled>
-      <MainImgWrapper>
-        <img src={headerDogImage} alt="doggies" />
-      </MainImgWrapper>
     </>
   );
 };

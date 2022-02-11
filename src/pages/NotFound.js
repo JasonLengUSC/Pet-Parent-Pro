@@ -1,9 +1,12 @@
+import ImageHeader from "../components/UI/ImageHeader";
+
 const NotFound = () => {
-    return (
-      <div className='centered'>
-        <p>Page not found!</p>
-      </div>
-    );
-  };
-  
-  export default NotFound;
+  return (
+    <>
+      <ImageHeader />
+      <h1>Page not found!</h1>
+    </>
+  );
+};
+
+export default NotFound;

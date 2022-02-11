@@ -1,29 +1,32 @@
 import styled from "styled-components";
 
 const SubmitButton = styled.button`
-  width: 100%;
-  max-width: 6em;
+  cursor: pointer;
   font: inherit;
   font-weight: bold;
-  background: #887485;
-  border: solid #887485;
+  background-color: #887485;
+  border: 1px solid #887485;
+  border-radius: 4px;
+  padding: 0.5rem 2.5rem;
   color: white;
   margin-top: 1em;
   margin-right: 2em;
   cursor: pointer;
   &:hover,
   &:active {
+    color: white;
     background: #695265;
     border-color: #695265;
   }
 `;
 const ButtonStyled = styled.button`
-  width: 100%;
-  max-width: 6em;
+  cursor: pointer;
   font: inherit;
+  font-weight: bold;
   background: #b0b3b8;
   border: solid #b0b3b8;
-  color: black;
+  border-radius: 4px;
+  color: white;
   margin-top: 1em;
   margin-right: 2em;
   cursor: pointer;
