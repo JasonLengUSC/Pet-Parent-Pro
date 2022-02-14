@@ -119,7 +119,7 @@ const Sitters = () => {
                     {sitter.tag}
                   </Tag>
                   <Rate
-                    style={{ "margin-bottom": "10px" }}
+                    style={{ "marginBottom": "10px" }}
                     defaultValue={sitter.rating}
                     character={({ index }) => ratingIcons[index]}
                     disabled
