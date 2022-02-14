@@ -1,19 +1,15 @@
-import { Drawer } from "antd";
+import { WrapDiv } from "./DogFilterStyles";
 
 const DogFilter = (props) => {
   return (
-    <>
-      <Drawer
-        title="Filter"
-        placement="right"
-        onClose={props.onClose}
-        visible={props.visible}
-      >
-        <p>Dog Filter will be here</p>
-      </Drawer>
-    </>
+    <WrapDiv>
+      <div>Demo Filter: </div>
+      <div>Show purose only</div>
+      <div>Breed</div>
+      <div>Location</div>
+      <div>Date Range:</div>
+    </WrapDiv>
   );
 };
 
 export default DogFilter;
-

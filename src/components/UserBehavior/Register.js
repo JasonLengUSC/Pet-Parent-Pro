@@ -2,12 +2,19 @@ import { useState } from "react";
 
 import Modal from "../UI/Modal";
 
-import { Form, Input } from "antd";
-import { SubmitButton } from "./RegisterStyles";
+import { Form, Input, Tooltip } from "antd";
+import {
+  InfoCircleOutlined,
+  UserOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  EnvironmentOutlined,
+  LockOutlined,
+} from "@ant-design/icons";
 
+import { SubmitButton } from "./RegisterStyles";
 const layout = {
-  labelCol: { span: 7 },
-  wrapperCol: { span: 14 },
+  wrapperCol: { offset: 4, span: 16 },
 };
 const tailLayout = {
   wrapperCol: { offset: 7, span: 14 },
@@ -83,7 +90,6 @@ const Register = (props) => {
       <Form {...layout} form={form} onFinish={submitHandler}>
         <Form.Item
           name="username"
-          label="Username"
           rules={[
             {
               required: true,
@@ -92,13 +98,18 @@ const Register = (props) => {
           ]}
         >
           <Input
-            placeholder="Enter your username here."
+            placeholder="Enter your username here"
+            prefix={<UserOutlined style={{ "margin-right": "10px" }} />}
+            suffix={
+              <Tooltip title="Username should no more than be 8 characters">
+                <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
+              </Tooltip>
+            }
             onChange={changeUsernameHandler}
           />
         </Form.Item>
         <Form.Item
           name="email"
-          label="Email"
           rules={[
             {
               required: true,
@@ -107,13 +118,13 @@ const Register = (props) => {
           ]}
         >
           <Input
-            placeholder="Enter your email here."
+            placeholder="Enter your email here"
+            prefix={<MailOutlined style={{ "margin-right": "10px" }} />}
             onChange={changeEmailHandler}
           />
         </Form.Item>
         <Form.Item
           name="phoneNumber"
-          label="Phone Number"
           rules={[
             {
               required: true,
@@ -122,13 +133,13 @@ const Register = (props) => {
           ]}
         >
           <Input
-            placeholder="Enter your phone number here."
+            placeholder="Enter your phone number here"
+            prefix={<PhoneOutlined style={{ "margin-right": "10px" }} />}
             onChange={changePhoneNumHandler}
           />
         </Form.Item>
         <Form.Item
-          name="location"
-          label="Region"
+          name="region"
           rules={[
             {
               required: true,
@@ -137,14 +148,14 @@ const Register = (props) => {
           ]}
         >
           <Input
-            placeholder="Enter your region here."
+            placeholder="Enter your region here"
+            prefix={<EnvironmentOutlined style={{ "margin-right": "10px" }} />}
             onChange={changeLocationHandler}
           />
         </Form.Item>
 
         <Form.Item
           name="password"
-          label="Password"
           rules={[
             {
               required: true,
@@ -153,13 +164,13 @@ const Register = (props) => {
           ]}
         >
           <Input.Password
-            placeholder="Enter your password here."
+            placeholder="Enter your password here"
+            prefix={<LockOutlined style={{ "margin-right": "10px" }} />}
             onChange={changePasswordHandler}
           />
         </Form.Item>
         <Form.Item
           name="confirmedPassword"
-          label="Comfirm Password"
           rules={[
             {
               required: true,
@@ -168,7 +179,8 @@ const Register = (props) => {
           ]}
         >
           <Input.Password
-            placeholder="Enter your password again."
+            placeholder="Please comfirm your password"
+            prefix={<LockOutlined style={{ "margin-right": "10px" }} />}
             onChange={changeConfirmedPasswordHandler}
           />
         </Form.Item>

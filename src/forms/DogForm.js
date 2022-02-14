@@ -1,20 +1,26 @@
 import { useState } from "react";
 import moment from "moment";
 
-import { SubmitButton, ButtonStyled } from "./FormButtonStyles";
+import Modal from "../components/UI/Modal";
 
 import {
   Form,
   Input,
   Select,
-  Rate,
   DatePicker,
   // message,
   // Upload,
   // Button,
 } from "antd";
 
-import Modal from "../components/UI/Modal";
+import {
+  UserOutlined,
+  FieldTimeOutlined,
+  EnvironmentOutlined,
+} from "@ant-design/icons";
+
+import { SubmitButton, ButtonStyled } from "./FormButtonStyles";
+
 // import { UploadOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
@@ -22,11 +28,10 @@ const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 
 const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 },
+  wrapperCol: { offset: 4, span: 16 },
 };
 const tailLayout = {
-  wrapperCol: { offset: 6, span: 16 },
+  wrapperCol: { offset: 5, span: 15 },
 };
 
 // const normFile = (e) => {
@@ -64,19 +69,19 @@ const DogForm = (props) => {
   const [dateRange, setDateRange] = useState([moment(), moment()]);
   // const [imgUrl, setImgUrl] = useState("");
 
-  const changeLocation = (e) => {
+  const changeLocationHandler = (e) => {
     setLocation(e.target.value);
   };
-  const changeBreed = (value) => {
+  const changeBreedHandler = (value) => {
     setBreed(value);
   };
-  const changeDescription = (e) => {
-    setDescription(e.target.value);
-  };
-  const changeDateRange = (dates) => {
+  const changeDateRangeHandler = (dates) => {
     if (dates) {
       setDateRange([...dates]);
     }
+  };
+  const changeDescriptionHandler = (e) => {
+    setDescription(e.target.value);
   };
   // const uploadHandler = (info) => {
   //   getBase64(info.file.originFileObj, (imageUrl) => {
@@ -86,7 +91,6 @@ const DogForm = (props) => {
   const submitFormHandler = () => {
     const formData = {
       name: props.userInfo.username,
-      rating: props.userInfo.rating,
       time: timeString,
       location,
       breed,
@@ -103,89 +107,61 @@ const DogForm = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
+      <h1>Looking for Boarding Service</h1>
       <Form {...layout} form={form} onFinish={submitFormHandler}>
-        <Form.Item
-          name="username"
-          label="Username"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your username!",
-            },
-          ]}
-          initialValue={props.userInfo.username}
-        >
-          <Input disabled />
-        </Form.Item>
-        <Form.Item
-          name="date"
-          label="Date"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-          initialValue={timeString}
-        >
-          <Input disabled />
-        </Form.Item>
-        <Form.Item
-          name="rating"
-          label="User Rating"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-          initialValue={props.userInfo.rating}
-        >
-          <Rate disabled />
-        </Form.Item>
-
-        <Form.Item
-          name="location"
-          label="Location"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your location!",
-            },
-          ]}
-        >
+        <Form.Item name="username" initialValue={props.userInfo.username}>
           <Input
-            placeholder="Enter your location here."
-            onChange={changeLocation}
+            prefix={<UserOutlined style={{ "margin-right": "10px" }} />}
+            disabled
+          />
+        </Form.Item>
+        <Form.Item name="date" initialValue={timeString}>
+          <Input
+            prefix={<FieldTimeOutlined style={{ "margin-right": "10px" }} />}
+            disabled
           />
         </Form.Item>
 
         <Form.Item
-          name="dateRange"
-          label="Preferred Dates"
+          name="region"
           rules={[
             {
               required: true,
-              message: "Please select a range of dates",
+              message: "Please enter your region!",
+            },
+          ]}
+        >
+          <Input
+            placeholder="Enter your region here"
+            prefix={<EnvironmentOutlined style={{ "margin-right": "10px" }} />}
+            onChange={changeLocationHandler}
+          />
+        </Form.Item>
+        <Form.Item
+          name="dateRange"
+          rules={[
+            {
+              required: true,
+              message: "Please select a range of dates for the service!",
             },
           ]}
           initialValue={[...dateRange]}
         >
-          <RangePicker onCalendarChange={changeDateRange} />
+          <RangePicker onCalendarChange={changeDateRangeHandler} />
         </Form.Item>
-
         <Form.Item
           name="breed"
-          label="Dog Breed"
           rules={[
             {
               required: true,
-              message: "Please choose a breed",
+              message: "Please choose your dog's breed!",
             },
           ]}
         >
           <Select
-            placeholder="Choose the breed of your dog"
+            placeholder="Choose the your dog's breed here"
             allowClear
-            onChange={changeBreed}
+            onChange={changeBreedHandler}
           >
             <Option value="Affenpinscher">Affenpinscher</Option>
             <Option value="African">African</Option>
@@ -338,11 +314,10 @@ const DogForm = (props) => {
         </Form.Item>
         <Form.Item
           name="description"
-          label="Description"
           rules={[
             {
               required: true,
-              message: "Say something about your dog",
+              message: "Please Share some more info about your dog!",
             },
           ]}
         >
@@ -350,8 +325,8 @@ const DogForm = (props) => {
             rows={4}
             showCount
             maxLength={400}
-            placeholder="Say something about your dog here."
-            onChange={changeDescription}
+            placeholder="Say something about your dog here"
+            onChange={changeDescriptionHandler}
           />
         </Form.Item>
         {/* <Form.Item

@@ -6,7 +6,7 @@ const HeaderStyled = styled.header`
   left: 0;
   width: 100%;
   height: 5rem;
-  background-color: #695265;
+  background-color: #877283;
   color: white;
   display: flex;
   flex-direction: row;
@@ -16,13 +16,16 @@ const HeaderStyled = styled.header`
   border: 0;
   margin: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  @media (max-width: 1220px) {
+    height: 8rem;
+  }
 `;
 const HeaderPrimary = styled.div`
   top: 0;
   left: 0;
   width: 100%;
   height: 5rem;
-  background-color: #695265;
+  background-color: #877283;
   color: white;
   display: flex;
   flex-direction: row;
@@ -37,7 +40,7 @@ const HeaderSign = styled.div`
   left: 0;
   width: 100%;
   height: 5rem;
-  background-color: #695265;
+  background-color: #877283;
   color: white;
   display: flex;
   flex-direction: row;

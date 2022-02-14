@@ -8,18 +8,64 @@ import { Card, Row, Col, Image } from "antd";
 
 import { FilterOutlined } from "@ant-design/icons";
 
-import {
-  WrapDiv,
-  CardStyled,
-  FilterDiv,
-  ButtonStyled,
-} from "./DogSitterStyles";
-
+import { WrapDiv, CardStyled, FilterDiv } from "./DogSitterStyles";
 
 const userInfo = {
-  username: "TestUser01",
-  rating: 5,
+  username: "TestSitter01",
+  rating: 4,
 };
+
+const DUMMY_DOGS = [
+  {
+    username: "TestDogParent01",
+    date: "2022/01/04",
+    breed: "Husky",
+    region: "LA",
+  },
+  {
+    username: "TestDogParent02",
+    date: "2022/01/09",
+    breed: "Husky",
+    region: "WA",
+  },
+  {
+    username: "TestDogParent03",
+    date: "2022/01/05",
+    breed: "Husky",
+    region: "VA",
+  },
+  {
+    username: "TestDogParent04",
+    date: "2022/01/03",
+    breed: "Husky",
+    region: "FL",
+  },
+  {
+    username: "TestDogParent05",
+    date: "2022/02/01",
+    breed: "Husky",
+    region: "AZ",
+  },
+  {
+    username: "TestDogParent06",
+    date: "2022/02/02",
+    breed: "Husky",
+    region: "MN",
+  },
+  {
+    username: "TestDogParent07",
+    date: "2022/02/04",
+    breed: "Husky",
+    region: "WA",
+  },
+  {
+    username: "TestDogParent08",
+    date: "2022/01/31",
+    breed: "Husky",
+    region: "LA",
+  },
+
+];
 
 const Dogs = () => {
   useEffect(() => {
@@ -29,7 +75,7 @@ const Dogs = () => {
   const [dogImages, setDogImages] = useState([]);
 
   const fetchDogImageHandler = () => {
-    fetch("https://dog.ceo/api/breed/husky/images/random/10")
+    fetch("https://dog.ceo/api/breed/husky/images/random/8")
       .then((response) => {
         return response.json();
       })
@@ -39,20 +85,12 @@ const Dogs = () => {
   };
 
   const [showSitterForm, setShowSitterForm] = useState(false);
-  const [showFilterDrawer, setshowFilterDrawer] = useState(false);
 
-  const showSitterFormHanlder = () => {
+  const showSitterFormHandler = () => {
     setShowSitterForm(true);
   };
-  const hideSitterFormHanlder = () => {
+  const hideSitterFormHandler = () => {
     setShowSitterForm(false);
-  };
-
-  const showDrawerHandler = () => {
-    setshowFilterDrawer(true);
-  };
-  const hideDrawerHandler = () => {
-    setshowFilterDrawer(false);
   };
 
   return (
@@ -60,38 +98,34 @@ const Dogs = () => {
       <MainHeader />
       <WrapDiv>
         <FilterDiv>
-          <FilterOutlined style={{ fontSize: "25px", color: "#695265" }} />
-          <ButtonStyled onClick={showDrawerHandler}>Filter</ButtonStyled>
-          {showFilterDrawer && (
-            <DogFilter visible={showFilterDrawer} onClose={hideDrawerHandler} />
-          )}
+          <FilterOutlined
+            style={{ float: "left", fontSize: "20px", color: "white" }}
+          />
+          <DogFilter />
         </FilterDiv>
         <CardStyled>
-          <p>Didn't find the dog you want? </p>
-          <p>Post your own info!</p>
-          <button onClick={showSitterFormHanlder}>Fill Out My Info</button>
+          <button onClick={showSitterFormHandler}>Become a Sitter</button>
           {showSitterForm && (
-            <SitterForm userInfo={userInfo} onClose={hideSitterFormHanlder} />
+            <SitterForm userInfo={userInfo} onClose={hideSitterFormHandler} />
           )}
         </CardStyled>
-        <Row gutter={[16, 16]}>
+        <Row gutter={[8, 16]}>
           {dogImages.map((imgLink, index) => {
+            const dogList = DUMMY_DOGS[index];
             return (
-              <Col key={"dogCard" + index} span={24 / 5}>
+              <Col key={"dogCard" + index} span={24 / 4}>
                 <Card
                   hoverable
-                  title={"Dog Post " + index}
-                  style={{ width: 300 }}
+                  style={{ width: 300, marginTop: 8 }}
                   cover={
                     // <img alt="dogImg" src={imgLink} />
                     <Image width={300} height={300} src={imgLink} />
                   }
                 >
-                  <p>Username: TestUser {index}</p>
-                  <p>Date: xxxx/xx/xx</p>
-                  <p>Breed: Husky</p>
-                  <p>Location: Seattle</p>
-                  <p>Rate: 5/5</p>
+                  <p>Username: {dogList.username}</p>
+                  <p>Date: {dogList.date}</p>
+                  <p>Breed: {dogList.breed}</p>
+                  <p>Region: {dogList.region}</p>
                 </Card>
               </Col>
             );

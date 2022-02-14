@@ -6,72 +6,67 @@ const WrapDiv = styled.div`
 `;
 
 const CardStyled = styled.div`
-  position: fixed;
-  bottom: 40px;
-  left: 20px;
+  position: absolute;
+  top: 8em;
+  right: 34px;
   display: block;
   text-decoration: none;
   color: white;
-  background-color: #c4bbc3;
-  border: 1px solid #c4bbc3;
+  background-color: #877283;
+  border: 1px solid #877283;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-left: 2em;
   width: 100%;
-  max-width: 12em;
+  max-width: 13em;
   height: 100%;
-  max-height: 12em;
+  max-height: 4em;
   text-align: center;
-  & p {
-    text-align: center;
-    margin-top: 10px;
-  }
   & button {
     cursor: pointer;
-    text-decoration: none;
+    margin-top: 3px;
+    font-weight: bold;
     border: none;
-    background-color: #9e939c;
+    background-color: #877283;
     color: white;
     font-size: 15px;
     &:hover,
     &:active {
-      font-weight: bold;
+      text-decoration: underline;
     }
+  }
+  @media (max-width: 1220px) {
+    top: 12em;
   }
 `;
 
 const FilterDiv = styled.div`
-  position: absolute;
-  top: 9em;
-  left: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  position: fixed;
+  top: 14em;
+  left: 15px;
+  display: block;
   text-decoration: none;
-  background-color: none;
-  border: none;
+  color: white;
+  background-color: #cfc8ce;
+  border: 1px solid #cfc8ce;
   padding: 10px 20px;
-  margin-left: 2em;
+  border-radius: 5px;
+  margin-left: 1em;
   width: 100%;
-  max-width: 12em;
+  max-width: 14em;
   height: 100%;
-  max-height: 12em;
+  max-height: 52em;
   text-align: center;
-`;
-
-const ButtonStyled = styled.button`
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 17px;
-  margin-left: 5px;
-  margin-top: 6px;
-  background-color: white;
-  border: none;
-  color: #695265;
-  &:hover,
-  &:active {
-    text-decoration: underline;
+  & p {
+    font-size: 17px;
+    color: #695265;
+    text-align: left;
+    margin-left: 40px;
+  }
+  @media (max-width: 1220px) {
+    top: 17em;
+    height: 49em;
   }
 `;
-export { WrapDiv, CardStyled, FilterDiv, ButtonStyled };
+
+export { WrapDiv, CardStyled, FilterDiv};

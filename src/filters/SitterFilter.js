@@ -1,19 +1,16 @@
-import { Drawer } from "antd";
+import { WrapDiv } from "./SitterFilterStyles";
 
 const SitterFilter = (props) => {
   return (
-    <>
-      <Drawer
-        title="Filter"
-        placement="right"
-        onClose={props.onClose}
-        visible={props.visible}
-      >
-        <p>Sitter Filter will be here</p>
-      </Drawer>
-    </>
+    <WrapDiv>
+      <div>Demo Filter: </div>
+      <div>Show purose only</div>
+      <div>Rating</div>
+      <div>Location</div>
+      <div>Date Range:</div>
+      <div>Prefered Size:</div>
+    </WrapDiv>
   );
 };
 
 export default SitterFilter;
-
