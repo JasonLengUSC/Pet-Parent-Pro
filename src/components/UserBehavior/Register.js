@@ -99,7 +99,7 @@ const Register = (props) => {
         >
           <Input
             placeholder="Enter your username here"
-            prefix={<UserOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<UserOutlined style={{ "marginRight": "10px" }} />}
             suffix={
               <Tooltip title="Username should no more than be 8 characters">
                 <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
@@ -119,7 +119,7 @@ const Register = (props) => {
         >
           <Input
             placeholder="Enter your email here"
-            prefix={<MailOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<MailOutlined style={{ "marginRight": "10px" }} />}
             onChange={changeEmailHandler}
           />
         </Form.Item>
@@ -134,7 +134,7 @@ const Register = (props) => {
         >
           <Input
             placeholder="Enter your phone number here"
-            prefix={<PhoneOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<PhoneOutlined style={{ "marginRight": "10px" }} />}
             onChange={changePhoneNumHandler}
           />
         </Form.Item>
@@ -149,7 +149,7 @@ const Register = (props) => {
         >
           <Input
             placeholder="Enter your region here"
-            prefix={<EnvironmentOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<EnvironmentOutlined style={{ "marginRight": "10px" }} />}
             onChange={changeLocationHandler}
           />
         </Form.Item>
@@ -165,7 +165,7 @@ const Register = (props) => {
         >
           <Input.Password
             placeholder="Enter your password here"
-            prefix={<LockOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<LockOutlined style={{ "marginRight": "10px" }} />}
             onChange={changePasswordHandler}
           />
         </Form.Item>
@@ -180,7 +180,7 @@ const Register = (props) => {
         >
           <Input.Password
             placeholder="Please comfirm your password"
-            prefix={<LockOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<LockOutlined style={{ "marginRight": "10px" }} />}
             onChange={changeConfirmedPasswordHandler}
           />
         </Form.Item>

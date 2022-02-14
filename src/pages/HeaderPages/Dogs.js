@@ -111,7 +111,7 @@ const Dogs = () => {
         </CardStyled>
         <Row gutter={[8, 16]}>
           {dogImages.map((imgLink, index) => {
-            const dogList = DUMMY_DOGS[index];
+            const dog = DUMMY_DOGS[index];
             return (
               <Col key={"dogCard" + index} span={24 / 4}>
                 <Card
@@ -122,10 +122,10 @@ const Dogs = () => {
                     <Image width={300} height={300} src={imgLink} />
                   }
                 >
-                  <p>Username: {dogList.username}</p>
-                  <p>Date: {dogList.date}</p>
-                  <p>Breed: {dogList.breed}</p>
-                  <p>Region: {dogList.region}</p>
+                  <p>Username: {dog.username}</p>
+                  <p>Date: {dog.date}</p>
+                  <p>Breed: {dog.breed}</p>
+                  <p>Region: {dog.region}</p>
                 </Card>
               </Col>
             );

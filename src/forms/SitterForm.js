@@ -80,13 +80,13 @@ const SitterForm = (props) => {
       <Form {...layout} form={form} onFinish={submitSitterForm}>
         <Form.Item name="username" initialValue={props.userInfo.username}>
           <Input
-            prefix={<UserOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<UserOutlined style={{ "marginRight": "10px" }} />}
             disabled
           />
         </Form.Item>
         <Form.Item name="date" initialValue={timeString}>
           <Input
-            prefix={<FieldTimeOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<FieldTimeOutlined style={{ "marginRight": "10px" }} />}
             disabled
           />
         </Form.Item>
@@ -105,7 +105,7 @@ const SitterForm = (props) => {
         >
           <Input
             placeholder="Enter your region here"
-            prefix={<EnvironmentOutlined style={{ "margin-right": "10px" }} />}
+            prefix={<EnvironmentOutlined style={{ "marginRight": "10px" }} />}
             onChange={changeLocationHandler}
           />
         </Form.Item>
