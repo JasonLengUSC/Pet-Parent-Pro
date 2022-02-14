@@ -9,15 +9,13 @@ import {
   HeaderSign,
   SiteName,
   NavLinkStyled,
-  MainImgWrapper,
 } from "./HeaderStyles";
 
-import NavButton from "../UI/NavButton";
+import NavButton from "./NavButton";
 import SignIn from "../UserBehavior/SignIn";
 import Register from "../UserBehavior/Register";
 import SignOut from "../UserBehavior/SignOut";
 
-import headerDogImage from "../../assets/header-dogs.jpeg";
 
 const headerItems = [
   {
@@ -70,7 +68,7 @@ const Header = (props) => {
   const showLoginFormHandler = () => {
     setShowLoginForm(true);
   };
-  const hideLoginFormHanlder = () => {
+  const hideLoginFormHandler = () => {
     setShowLoginForm(false);
   };
 
@@ -79,7 +77,7 @@ const Header = (props) => {
   const showRegisterFormHandler = () => {
     setShowRegisterForm(true);
   };
-  const hideRegisterFormHanlder = () => {
+  const hideRegisterFormHandler = () => {
     setShowRegisterForm(false);
   };
 
@@ -88,7 +86,7 @@ const Header = (props) => {
   const showLogoutModalHandler = () => {
     setShowLogoutModal(true);
   };
-  const hideLogoutModalHanlder = () => {
+  const hideLogoutModalHandler = () => {
     setShowLogoutModal(false);
   };
 
@@ -104,23 +102,20 @@ const Header = (props) => {
           {login ? (
             <>
             <NavButton onClick={showLogoutModalHandler}>Sign Out</NavButton>
-            {showLogoutModal && <SignOut onClose={hideLogoutModalHanlder} />}
+            {showLogoutModal && <SignOut onClose={hideLogoutModalHandler} />}
             </>
           ) : (
             <>
               <NavButton onClick={showLoginFormHandler}>Sign In</NavButton>
-              {showLoginForm && <SignIn onClose={hideLoginFormHanlder} />}
+              {showLoginForm && <SignIn onClose={hideLoginFormHandler} />}
               <NavButton onClick={showRegisterFormHandler}>Sign Up</NavButton>
               {showRegisterForm && (
-                <Register onClose={hideRegisterFormHanlder} />
+                <Register onClose={hideRegisterFormHandler} />
               )}
             </>
           )}
         </HeaderSign>
       </HeaderStyled>
-      <MainImgWrapper>
-        <img src={headerDogImage} alt="doggies" />
-      </MainImgWrapper>
     </>
   );
 };

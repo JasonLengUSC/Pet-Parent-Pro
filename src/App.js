@@ -8,12 +8,9 @@ import About from "./pages/HeaderPages/About";
 import ForgetPassword from "./pages/ForgetPassword";
 import NotFound from "./pages/NotFound";
 
-import Header from "./components/Layout/Header";
-
 function App() {
   return (
     <>
-      <Header />
       <Switch>
         <Route path="/" exact>
           <Redirect to="/home" />

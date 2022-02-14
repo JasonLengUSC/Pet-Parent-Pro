@@ -1,20 +1,35 @@
 import { useState } from "react";
 import moment from "moment";
 
-import { SubmitButton, ButtonStyled } from "./FormButtonStyles";
+import Modal from "../components/UI/Modal";
 
 import { Form, Input, Select, Rate, DatePicker } from "antd";
-import Modal from "../components/UI/Modal";
+import {
+  UserOutlined,
+  FieldTimeOutlined,
+  EnvironmentOutlined,
+} from "@ant-design/icons";
+import { FrownOutlined, MehOutlined, SmileOutlined } from "@ant-design/icons";
+
+import { SubmitButton, ButtonStyled } from "./FormButtonStyles";
+
 const { Option } = Select;
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 
+const ratingIcons = {
+  1: <FrownOutlined />,
+  2: <FrownOutlined />,
+  3: <MehOutlined />,
+  4: <SmileOutlined />,
+  5: <SmileOutlined />,
+};
+
 const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 },
+  wrapperCol: { offset: 4, span: 16 },
 };
 const tailLayout = {
-  wrapperCol: { offset: 6, span: 16 },
+  wrapperCol: { offset: 5, span: 15 },
 };
 
 const SitterForm = (props) => {
@@ -26,20 +41,21 @@ const SitterForm = (props) => {
   const [description, setDescription] = useState("");
   const [dateRange, setDateRange] = useState([moment(), moment()]);
 
-  const changeLocation = (e) => {
+  const changeLocationHandler = (e) => {
     setLocation(e.target.value);
   };
-  const changeSize = (value) => {
-    setSize(value);
-  };
-  const changeDescription = (e) => {
-    setDescription(e.target.value);
-  };
-  const changeDateRange = (dates) => {
+  const changeDateRangeHandler = (dates) => {
     if (dates) {
       setDateRange([...dates]);
     }
   };
+  const changeSizeHandler = (value) => {
+    setSize(value);
+  };
+  const changeDescriptionHandler = (e) => {
+    setDescription(e.target.value);
+  };
+
   const submitSitterForm = () => {
     const formData = {
       name: props.userInfo.username,
@@ -60,75 +76,53 @@ const SitterForm = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
+      <h1>Providing Service as Sitter</h1>
       <Form {...layout} form={form} onFinish={submitSitterForm}>
-        <Form.Item
-          name="username"
-          label="Username"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your username!",
-            },
-          ]}
-          initialValue={props.userInfo.username}
-        >
-          <Input disabled />
+        <Form.Item name="username" initialValue={props.userInfo.username}>
+          <Input
+            prefix={<UserOutlined style={{ "marginRight": "10px" }} />}
+            disabled
+          />
         </Form.Item>
-        <Form.Item
-          name="date"
-          label="Date"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-          initialValue={timeString}
-        >
-          <Input disabled />
+        <Form.Item name="date" initialValue={timeString}>
+          <Input
+            prefix={<FieldTimeOutlined style={{ "marginRight": "10px" }} />}
+            disabled
+          />
         </Form.Item>
-        <Form.Item
-          name="rating"
-          label="User Rating"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-          initialValue={props.userInfo.rating}
-        >
-          <Rate disabled />
+        <Form.Item name="rating" initialValue={props.userInfo.rating}>
+          <Rate character={({ index }) => ratingIcons[index + 1]} disabled />
         </Form.Item>
+
         <Form.Item
-          name="location"
-          label="Location"
+          name="region"
           rules={[
             {
               required: true,
-              message: "Please enter your location!",
+              message: "Please enter your region!",
             },
           ]}
         >
           <Input
-            placeholder="Enter your location here."
-            onChange={changeLocation}
+            placeholder="Enter your region here"
+            prefix={<EnvironmentOutlined style={{ "marginRight": "10px" }} />}
+            onChange={changeLocationHandler}
           />
         </Form.Item>
         <Form.Item
           name="dateRange"
-          label="Preferred Dates"
           rules={[
             {
               required: true,
-              message: "Please select a range of dates",
+              message: "Please select a range of dates for the service!",
             },
           ]}
           initialValue={[...dateRange]}
         >
-          <RangePicker onCalendarChange={changeDateRange} />
+          <RangePicker onCalendarChange={changeDateRangeHandler} />
         </Form.Item>
         <Form.Item
           name="size"
-          label="Preferred Size"
           rules={[
             {
               required: true,
@@ -139,21 +133,20 @@ const SitterForm = (props) => {
           <Select
             placeholder='Choose a dog size or select "Any"'
             allowClear
-            onChange={changeSize}
+            onChange={changeSizeHandler}
           >
             <Option value="any">Any</Option>
-            <Option value="small">Small</Option>
-            <Option value="medium">Medium</Option>
-            <Option value="large">Large</Option>
+            <Option value="small">Small: 0lbs - 15lbs</Option>
+            <Option value="medium">Medium: 16lbs - 40lbs</Option>
+            <Option value="large">Large: 41lbs - 100lbs</Option>
           </Select>
         </Form.Item>
         <Form.Item
           name="description"
-          label="Description"
           rules={[
             {
               required: true,
-              message: "Say something about yourself",
+              message: "Please Share some more info about yourself!",
             },
           ]}
         >
@@ -161,8 +154,8 @@ const SitterForm = (props) => {
             rows={4}
             showCount
             maxLength={400}
-            placeholder="Say something about yourself here."
-            onChange={changeDescription}
+            placeholder="Say something about yourself here"
+            onChange={changeDescriptionHandler}
           />
         </Form.Item>
         <Form.Item {...tailLayout}>

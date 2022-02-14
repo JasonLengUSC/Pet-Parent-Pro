@@ -1,13 +1,16 @@
 import { useState } from "react";
 import Modal from "../UI/Modal";
 
+
+
 import { Form, Input } from "antd";
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 import { SubmitButton, LinkStyled } from "./SignInStyles";
 
+
 const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 },
+  wrapperCol: { offset: 4, span: 16 },
 };
 const tailLayout = {
   wrapperCol: { offset: 6, span: 16 },
@@ -41,7 +44,6 @@ const Login = (props) => {
       <Form {...layout} form={form} onFinish={submitHandler}>
         <Form.Item
           name="username"
-          label="Username"
           rules={[
             {
               required: true,
@@ -50,13 +52,13 @@ const Login = (props) => {
           ]}
         >
           <Input
-            placeholder="Enter your username here."
+            placeholder="Enter your username here"
+            prefix={<UserOutlined />}
             onChange={changeUsernameHandler}
           />
         </Form.Item>
         <Form.Item
           name="password"
-          label="Password"
           rules={[
             {
               required: true,
@@ -65,7 +67,8 @@ const Login = (props) => {
           ]}
         >
           <Input.Password
-            placeholder="Enter your password here."
+            placeholder="Enter your password here"
+            prefix={<LockOutlined />}
             onChange={changePasswordHandler}
           />
         </Form.Item>

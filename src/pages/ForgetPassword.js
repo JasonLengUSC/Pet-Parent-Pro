@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import ImageHeader from "../components/UI/ImageHeader";
+
 import {
   ResetSec,
   InputDiv,
@@ -46,6 +48,7 @@ const ForgetPassword = () => {
 
   return (
     <>
+      <ImageHeader />
       <ResetSec>
         <h1>Reset Password</h1>
         <InputDiv>
