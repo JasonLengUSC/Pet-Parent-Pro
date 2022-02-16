@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import SitterForm from "../../forms/SitterForm";
 import MainHeader from "../../components/UI/MainHeader";
@@ -17,54 +18,61 @@ const userInfo = {
 
 const DUMMY_DOGS = [
   {
+    dogId: "Milo",
     username: "TestDogParent01",
     date: "2022/01/04",
     breed: "Husky",
     region: "LA",
   },
   {
+    dogId: "Ollie",
     username: "TestDogParent02",
     date: "2022/01/09",
     breed: "Husky",
     region: "WA",
   },
   {
+    dogId: "Leo",
     username: "TestDogParent03",
     date: "2022/01/05",
     breed: "Husky",
     region: "VA",
   },
   {
+    dogId: "Blue",
     username: "TestDogParent04",
     date: "2022/01/03",
     breed: "Husky",
     region: "FL",
   },
   {
+    dogId: "Loki",
     username: "TestDogParent05",
     date: "2022/02/01",
     breed: "Husky",
     region: "AZ",
   },
   {
+    dogId: "Cookie",
     username: "TestDogParent06",
     date: "2022/02/02",
     breed: "Husky",
     region: "MN",
   },
   {
+    dogId: "Cooper",
     username: "TestDogParent07",
     date: "2022/02/04",
     breed: "Husky",
     region: "WA",
   },
   {
+    dogId: "Bella",
     username: "TestDogParent08",
     date: "2022/01/31",
     breed: "Husky",
     region: "LA",
   },
-
 ];
 
 const Dogs = () => {
@@ -122,10 +130,17 @@ const Dogs = () => {
                     <Image width={300} height={300} src={imgLink} />
                   }
                 >
-                  <p>Username: {dog.username}</p>
+                  <p>Name: {dog.dogId}</p>
+                  <p>Parent: {dog.username}</p>
                   <p>Date: {dog.date}</p>
                   <p>Breed: {dog.breed}</p>
                   <p>Region: {dog.region}</p>
+                  <Link
+                    style={{ fontSize: "15px", color: "#877283" }}
+                    to={`/dogs/${dog.dogId}`}
+                  >
+                    More...
+                  </Link>
                 </Card>
               </Col>
             );

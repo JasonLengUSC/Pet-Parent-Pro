@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import DogForm from "../../forms/DogForm";
 import MainHeader from "../../components/UI/MainHeader";
@@ -20,19 +21,13 @@ const ratingIcons = [
   <SmileOutlined />,
 ];
 
-const experienceColorMapping = {
-  Beginner: "orange",
-  Intermediate: "lime",
-  Expert: "purple",
-};
-
 const userInfo = {
   username: "TestPetParent01",
 };
 
 const DUMMY_SITTERS = [
   {
-    username: "TestSitter01",
+    sitterId: "TestSitter01",
     rating: 4,
     date: "2022/01/04",
     preferedSize: "Small: 0lbs - 15lbs",
@@ -40,7 +35,7 @@ const DUMMY_SITTERS = [
     tag: "Intermediate",
   },
   {
-    username: "TestSitter02",
+    sitterId: "TestSitter02",
     rating: 5,
     date: "2022/01/09",
     preferedSize: "Medium: 16lbs - 40lbs",
@@ -48,7 +43,7 @@ const DUMMY_SITTERS = [
     tag: "Expert",
   },
   {
-    username: "TestSitter03",
+    sitterId: "TestSitter03",
     rating: 4,
     date: "2022/01/05",
     preferedSize: "Large: 41lbs - 100lbs",
@@ -56,7 +51,7 @@ const DUMMY_SITTERS = [
     tag: "Intermediate",
   },
   {
-    username: "TestSitter04",
+    sitterId: "TestSitter04",
     rating: 3,
     date: "2022/01/03",
     preferedSize: "Small: 0lbs - 15lbs",
@@ -64,7 +59,7 @@ const DUMMY_SITTERS = [
     tag: "Beginner",
   },
   {
-    username: "TestSitter05",
+    sitterId: "TestSitter05",
     rating: 5,
     date: "2022/02/01",
     preferedSize: "Medium: 16lbs - 40lbs",
@@ -72,7 +67,7 @@ const DUMMY_SITTERS = [
     tag: "Expert",
   },
   {
-    username: "TestSitter06",
+    sitterId: "TestSitter06",
     rating: 2,
     date: "2022/02/02",
     preferedSize: "Large: 41lbs - 100lbs",
@@ -80,6 +75,12 @@ const DUMMY_SITTERS = [
     tag: "Beginner",
   },
 ];
+
+const experienceColorMapping = {
+  Beginner: "#c0c99b",
+  Intermediate: "#e8ddba",
+  Expert: "#c1d1d6",
+};
 
 const Sitters = () => {
   const [showDogForm, setShowDogForm] = useState(false);
@@ -113,13 +114,13 @@ const Sitters = () => {
                 <Card hoverable style={{ width: "98%", marginTop: 8 }}>
                   <Meta
                     avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                    title={sitter.username}
+                    title={sitter.sitterId}
                   />
                   <Tag color={experienceColorMapping[sitter.tag]}>
                     {sitter.tag}
                   </Tag>
                   <Rate
-                    style={{ "marginBottom": "10px" }}
+                    style={{ marginBottom: "10px" }}
                     defaultValue={sitter.rating}
                     character={({ index }) => ratingIcons[index]}
                     disabled
@@ -127,6 +128,12 @@ const Sitters = () => {
                   <p>Date: {sitter.date}</p>
                   <p>Prefered Size: {sitter.preferedSize}</p>
                   <p>Region: {sitter.region}</p>
+                  <Link
+                    style={{ fontSize: "15px", color: "#877283" }}
+                    to={`/sitters/${sitter.sitterId}`}
+                  >
+                    More...
+                  </Link>
                 </Card>
               </Col>
             );
