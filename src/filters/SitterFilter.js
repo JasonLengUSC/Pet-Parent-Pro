@@ -1,14 +1,23 @@
 import { WrapDiv } from "./SitterFilterStyles";
+import { FilterOutlined } from "@ant-design/icons";
 
 const SitterFilter = (props) => {
   return (
     <WrapDiv>
-      <div>Demo Filter: </div>
-      <div>Show purose only</div>
-      <div>Rating</div>
-      <div>Location</div>
-      <div>Date Range:</div>
-      <div>Prefered Size:</div>
+      <FilterOutlined
+        style={{
+          marginLeft: "15px",
+          float: "left",
+          fontSize: "20px",
+          color: "white",
+        }}
+      />
+      <h3>Demo Filter: </h3>
+      <h3>Show purose only</h3>
+      <p>Rating</p>
+      <p>Location</p>
+      <p>Date Range:</p>
+      <p>Prefered Size:</p>
     </WrapDiv>
   );
 };

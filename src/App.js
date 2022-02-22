@@ -3,7 +3,9 @@ import "antd/dist/antd.min.css";
 
 import Home from "./pages/HeaderPages/Home";
 import Dogs from "./pages/HeaderPages/Dogs";
+import DogDetail from "./pages/DetailPages/DogDetail";
 import Sitters from "./pages/HeaderPages/Sitters";
+import SitterDetail from "./pages/DetailPages/SitterDetail";
 import About from "./pages/HeaderPages/About";
 import ForgetPassword from "./pages/ForgetPassword";
 import NotFound from "./pages/NotFound";
@@ -18,11 +20,17 @@ function App() {
         <Route path="/home" exact>
           <Home />
         </Route>
-        <Route path="/dogs">
+        <Route path="/dogs" exact>
           <Dogs />
         </Route>
-        <Route path="/sitters">
+        <Route path="/dogs/:dogId">
+          <DogDetail />
+        </Route>
+        <Route path="/sitters" exact>
           <Sitters />
+        </Route>
+        <Route path="/sitters/:sitterId">
+          <SitterDetail />
         </Route>
         <Route path="/about">
           <About />

@@ -15,6 +15,7 @@ import {
 
 import {
   UserOutlined,
+  EditOutlined,
   FieldTimeOutlined,
   EnvironmentOutlined,
 } from "@ant-design/icons";
@@ -111,17 +112,32 @@ const DogForm = (props) => {
       <Form {...layout} form={form} onFinish={submitFormHandler}>
         <Form.Item name="username" initialValue={props.userInfo.username}>
           <Input
-            prefix={<UserOutlined style={{ "marginRight": "10px" }} />}
+            prefix={<UserOutlined style={{ marginRight: "10px" }} />}
             disabled
           />
         </Form.Item>
         <Form.Item name="date" initialValue={timeString}>
           <Input
-            prefix={<FieldTimeOutlined style={{ "marginRight": "10px" }} />}
+            prefix={<FieldTimeOutlined style={{ marginRight: "10px" }} />}
             disabled
           />
         </Form.Item>
 
+        <Form.Item
+          name="dogName"
+          rules={[
+            {
+              required: true,
+              message: "Please enter your dog's name!",
+            },
+          ]}
+        >
+          <Input
+            placeholder="Enter your dog's name here"
+            prefix={<EditOutlined style={{ marginRight: "10px" }} />}
+            onChange={changeLocationHandler}
+          />
+        </Form.Item>
         <Form.Item
           name="region"
           rules={[
@@ -133,7 +149,7 @@ const DogForm = (props) => {
         >
           <Input
             placeholder="Enter your region here"
-            prefix={<EnvironmentOutlined style={{ "marginRight": "10px" }} />}
+            prefix={<EnvironmentOutlined style={{ marginRight: "10px" }} />}
             onChange={changeLocationHandler}
           />
         </Form.Item>
