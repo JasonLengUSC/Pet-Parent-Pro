@@ -20,8 +20,9 @@ const Dogs = () => {
 
   const [dogImages, setDogImages] = useState([]);
 
+  const dogNum = 12;
   const fetchDogImageHandler = () => {
-    fetch("https://dog.ceo/api/breed/husky/images/random/8")
+    fetch(`https://dog.ceo/api/breed/husky/images/random/${dogNum}`)
       .then((response) => {
         return response.json();
       })
@@ -55,7 +56,7 @@ const Dogs = () => {
       <WrapDiv>
         <Row gutter={[25, 25]}>
           {dogImages.map((imgLink, index) => {
-            const dog = DUMMY_DOGS[index];
+            const dog = DUMMY_DOGS[index % DUMMY_DOGS.length];
             return (
               <Col key={"dogCard" + index} span={24 / 4}>
                 <Link to={`/dogs/${dog.dogId}`}>

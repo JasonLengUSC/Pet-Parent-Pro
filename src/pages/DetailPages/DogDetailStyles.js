@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { LeftOutlined } from "@ant-design/icons";
 
-const PageBody = styled.body`
+const PageWrapper = styled.div`
   min-height: 100vh;
   background-color: #cfc8ce;
   display: flex;
@@ -18,12 +18,13 @@ const BackArrow = styled(LeftOutlined)`
 `;
 const HeadLine = styled.h1`
   position: absolute;
-  top: 210px;
-  right: 2em;
-  font-size: 110px;
+  top: 150px;
+  right: 3em;
+  font-size: 130px;
   color: rgba(255, 255, 255, 0.5);
   z-index: 1;
 `;
+
 const WrapFigure = styled.figure`
   position: relative;
   width: 100%;
@@ -55,6 +56,10 @@ const WrapFigure = styled.figure`
     color: white;
     text-align: left;
   }
+  & img {
+    margin-bottom: 25px;
+    border-radius: 10px;
+  }
 `;
 
-export { PageBody, BackArrow, HeadLine, WrapFigure };
+export { PageWrapper, BackArrow, HeadLine, WrapFigure };

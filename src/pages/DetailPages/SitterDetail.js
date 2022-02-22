@@ -8,11 +8,11 @@ import { experienceColorMapping } from "../../datas/staticDatas/ExperienceColorM
 import { Rate, Tag } from "antd";
 
 import {
-  PageBody,
+  PageWrapper,
   BackArrow,
   HeadLine,
   WrapFigure,
-} from "./SitterDetailStyles";
+} from "../HeaderPages/SitterDetailStyles";
 
 const SitterDetail = () => {
   const params = useParams();
@@ -26,7 +26,7 @@ const SitterDetail = () => {
 
   return (
     <>
-      <PageBody>
+      <PageWrapper>
         <Link to={`/sitters`}>
           <BackArrow />
         </Link>
@@ -52,7 +52,7 @@ const SitterDetail = () => {
           <h2>Description: </h2>
           <p>{sitter.description}</p>
         </WrapFigure>
-      </PageBody>
+      </PageWrapper>
     </>
   );
 };

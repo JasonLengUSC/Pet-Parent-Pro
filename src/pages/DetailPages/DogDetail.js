@@ -6,7 +6,7 @@ import detailDogImage from "../../assets/dummy-dog-detail-image.jpg";
 
 import { Carousel } from "antd";
 
-import { PageBody, BackArrow, HeadLine, WrapFigure } from "./DogDetailStyles";
+import { PageWrapper, BackArrow, HeadLine, WrapFigure } from "../DetailPages/DogDetailStyles";
 
 const iamgeStyle = {
   height: "400px",
@@ -23,7 +23,7 @@ const DogDetail = () => {
 
   return (
     <>
-      <PageBody>
+      <PageWrapper>
       <Link to={`/dogs`}>
         <BackArrow />
         </Link>
@@ -45,7 +45,7 @@ const DogDetail = () => {
           <h2>Description: </h2>
           <p>{dog.description}</p>
         </WrapFigure>
-      </PageBody>
+      </PageWrapper>
     </>
   );
 };

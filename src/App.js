@@ -3,9 +3,9 @@ import "antd/dist/antd.min.css";
 
 import Home from "./pages/HeaderPages/Home";
 import Dogs from "./pages/HeaderPages/Dogs";
-import DogDetail from "./pages/HeaderPages/DogDetail";
+import DogDetail from "./pages/DetailPages/DogDetail";
 import Sitters from "./pages/HeaderPages/Sitters";
-import SitterDetail from "./pages/HeaderPages/SitterDetail";
+import SitterDetail from "./pages/DetailPages/SitterDetail";
 import About from "./pages/HeaderPages/About";
 import ForgetPassword from "./pages/ForgetPassword";
 import NotFound from "./pages/NotFound";
