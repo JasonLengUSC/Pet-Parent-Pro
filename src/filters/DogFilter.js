@@ -1,13 +1,17 @@
 import { WrapDiv } from "./DogFilterStyles";
+import { FilterOutlined } from "@ant-design/icons";
 
 const DogFilter = (props) => {
   return (
     <WrapDiv>
-      <div>Demo Filter: </div>
-      <div>Show purose only</div>
-      <div>Breed</div>
-      <div>Location</div>
-      <div>Date Range:</div>
+       <FilterOutlined
+        style={{ marginLeft: "15px", float:"left", fontSize: "20px", color: "white" }}
+      />
+      <h3>Demo Filter: </h3>
+      <h3>Show purose only</h3>
+      <p>Breed</p>
+      <p>Location</p>
+      <p>Date Range:</p>
     </WrapDiv>
   );
 };
