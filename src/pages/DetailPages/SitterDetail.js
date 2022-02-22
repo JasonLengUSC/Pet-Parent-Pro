@@ -12,7 +12,7 @@ import {
   BackArrow,
   HeadLine,
   WrapFigure,
-} from "../HeaderPages/SitterDetailStyles";
+} from "../DetailPages/SitterDetailStyles";
 
 const SitterDetail = () => {
   const params = useParams();
