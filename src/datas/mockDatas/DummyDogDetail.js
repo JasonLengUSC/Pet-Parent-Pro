@@ -1,6 +1,6 @@
 const DUMMY_DOG_DETAILS = [
   {
-    username: "TestDogParent01",
+    parentId: "TestDogParent01",
     date: "2022/01/04",
     dogId: "Milo",
     breed: "Husky",
@@ -9,7 +9,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent02",
+    parentId: "TestDogParent02",
     date: "2022/01/09",
     dogId: "Ollie",
     breed: "Husky",
@@ -18,7 +18,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent03",
+    parentId: "TestDogParent03",
     date: "2022/01/05",
     dogId: "Leo",
     breed: "Husky",
@@ -27,7 +27,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent04",
+    parentId: "TestDogParent04",
     date: "2022/01/03",
     dogId: "Blue",
     breed: "Husky",
@@ -36,7 +36,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent05",
+    parentId: "TestDogParent05",
     date: "2022/02/01",
     dogId: "Loki",
     breed: "Husky",
@@ -45,7 +45,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent06",
+    parentId: "TestDogParent06",
     date: "2022/02/02",
     dogId: "Cookie",
     breed: "Husky",
@@ -63,7 +63,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent08",
+    parentId: "TestDogParent08",
     date: "2022/01/31",
     dogId: "Bella",
     breed: "Husky",
