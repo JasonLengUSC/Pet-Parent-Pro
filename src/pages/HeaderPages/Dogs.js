@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 import { DUMMY_DOGS } from "../../datas/mockDatas/DummyDogs";
 import { DUMMY_USER_FOR_SITTER_FORM_ON_DOG_PAGE } from "../../datas/mockDatas/DummyUserInfo";
 
-import SitterForm from "../../forms/SitterForm";
-import MainHeader from "../../components/UI/MainHeader";
-import DogFilter from "../../filters/DogFilter";
-import DogCard from "../../components/Card/DogCard";
+import SitterForm from "../../components/Forms/SitterForm";
+import MainHeader from "../../components/UI/HeaderPlain";
+import DogFilter from "../../components/Filters/DogFilter";
+import DogCard from "../../components/UI/DogCard";
 
 import { Row, Col } from "antd";
 
 import { BackDiv, DogButton, CircleDiv, WrapDiv } from "./DogStyles";
 
 const Dogs = () => {
+  const [dogImages, setDogImages] = useState([]);
+
   useEffect(() => {
     fetchDogImageHandler();
   }, []);
-
-  const [dogImages, setDogImages] = useState([]);
 
   const dogNum = 12;
   const fetchDogImageHandler = () => {

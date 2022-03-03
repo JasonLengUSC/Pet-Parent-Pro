@@ -1,7 +1,7 @@
 import { useState } from "react";
 import moment from "moment";
 
-import Modal from "../components/UI/Modal";
+import Modal from "../UI/Modal";
 
 import { Form, Input, Select, Rate, DatePicker } from "antd";
 import {

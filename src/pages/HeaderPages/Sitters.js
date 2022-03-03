@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { DUMMY_SITTERS } from "../../datas/mockDatas/DummySitters";
 import { DUMMY_USER_FOR_DOG_FORM_ON_SITTER_PAGE } from "../../datas/mockDatas/DummyUserInfo";
 
-import DogForm from "../../forms/DogForm";
-import MainHeader from "../../components/UI/MainHeader";
-import SitterFilter from "../../filters/SitterFilter";
-import SitterCard from "../../components/Card/SitterCard";
+import DogForm from "../../components/Forms/DogForm";
+import MainHeader from "../../components/UI/HeaderPlain";
+import SitterFilter from "../../components/Filters/SitterFilter";
+import SitterCard from "../../components/UI/SitterCard";
 
 import { Row, Col } from "antd";
 

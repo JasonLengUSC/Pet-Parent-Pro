@@ -1,4 +1,4 @@
-import ImageHeader from "../../components/UI/ImageHeader";
+import HeaderWithImage from "../../components/UI/HeaderWithImage";
 
 import Service from "../../assets/service-flow.jpg";
 import { AboutHeadline, AboutText, AboutIconWrapper } from "./AboutStyles";
@@ -6,7 +6,7 @@ import { AboutHeadline, AboutText, AboutIconWrapper } from "./AboutStyles";
 const About = () => {
   return (
     <>
-      <ImageHeader />
+      <HeaderWithImage />
       <AboutHeadline>About Pet Parent Pro</AboutHeadline>
       <AboutText>
         Welcome to the neighborhood network of trusted pet sitters and lovely
