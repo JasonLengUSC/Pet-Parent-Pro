@@ -1,7 +1,6 @@
 import { useState } from "react";
 import moment from "moment";
 
-import { BreedList } from "../../datas/staticDatas/BreedList";
 import Modal from "../UI/Modal";
 
 import {
@@ -26,8 +25,6 @@ import { SubmitButton, ButtonStyled } from "./FormButtonStyles";
 // import { UploadOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
-const breedOptions = BreedList;
-
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 
@@ -184,7 +181,7 @@ const DogForm = (props) => {
             allowClear={true}
             onChange={changeBreedHandler}
           >
-            {breedOptions.map((breed) => (
+            {props.breedList.map((breed) => (
               <Option key={breed}>{breed}</Option>
             ))}
           </Select>

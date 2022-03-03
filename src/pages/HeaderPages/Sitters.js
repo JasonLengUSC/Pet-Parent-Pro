@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { DUMMY_SITTERS } from "../../datas/mockDatas/DummySitters";
@@ -13,7 +13,38 @@ import { Row, Col } from "antd";
 
 import { BackDiv, SitterButton, WrapDiv } from "./SitterStyles";
 
+const breedList = [];
+
 const Sitters = () => {
+  const [breedOptions, setBreedOptions] = useState([]);
+
+  useEffect(() => {
+    fetchBreedListHandler();
+  }, []);
+
+  const fetchBreedListHandler = () => {
+    fetch("https://dog.ceo/api/breeds/list/all")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.message);
+        const breedJson = data.message;
+        Object.keys(breedJson).forEach((key) => {
+          const breedArray = breedJson[key];
+          if (breedArray.length === 0) {
+            breedList.push(key);
+          } else {
+            breedArray.forEach((subBreed) => {
+              breedList.push(subBreed + " " + key);
+            });
+          }
+        });
+        console.log("Printing breedList: ", breedList);
+        setBreedOptions(breedList);
+      });
+  };
+
   const [showDogForm, setShowDogForm] = useState(false);
   const showDogFormHandler = () => {
     setShowDogForm(true);
@@ -30,6 +61,7 @@ const Sitters = () => {
       <SitterButton onClick={showDogFormHandler}>Post Dog's Info</SitterButton>
       {showDogForm && (
         <DogForm
+          breedList={breedOptions}
           userInfo={DUMMY_USER_FOR_DOG_FORM_ON_SITTER_PAGE}
           onClose={hideDogFormHandler}
         />

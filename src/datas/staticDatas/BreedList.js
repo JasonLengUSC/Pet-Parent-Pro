@@ -1,4 +1,4 @@
-let BreedList = [];
+const BreedList = [];
 
 fetch("https://dog.ceo/api/breeds/list/all")
   .then((response) => {
@@ -7,7 +7,7 @@ fetch("https://dog.ceo/api/breeds/list/all")
   .then((data) => {
     console.log(data.message);
     const breedJson = data.message;
-    Object.keys(breedJson).map((key) => {
+    Object.keys(breedJson).forEach((key) => {
       const breedArray = breedJson[key];
       if (breedArray.length === 0) {
         BreedList.push(key);
@@ -16,7 +16,6 @@ fetch("https://dog.ceo/api/breeds/list/all")
           BreedList.push(breedArray[subBreed] + " " + key);
         }
       }
-      return BreedList;
     });
     console.log("Printing breedList: ", BreedList);
   });

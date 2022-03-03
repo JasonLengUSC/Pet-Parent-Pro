@@ -54,7 +54,7 @@ const DUMMY_DOG_DETAILS = [
       "He is two years old, super adorable and cute. Never barks at night, loves paly with people. Feel free to contact for more info.",
   },
   {
-    username: "TestDogParent07",
+    parentId: "TestDogParent07",
     date: "2022/02/04",
     dogId: "Cooper",
     breed: "Husky",
