@@ -7,6 +7,7 @@ import DogDetail from "./pages/DetailPages/DogDetail";
 import Sitters from "./pages/HeaderPages/Sitters";
 import SitterDetail from "./pages/DetailPages/SitterDetail";
 import About from "./pages/HeaderPages/About";
+import Message from "./pages/HeaderPages/Message";
 import ForgetPassword from "./pages/ForgetPassword";
 import NotFound from "./pages/NotFound";
 
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/message">
+          <Message />
         </Route>
         <Route path="/forgetPassword">
           <ForgetPassword />

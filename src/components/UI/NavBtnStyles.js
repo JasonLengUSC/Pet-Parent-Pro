@@ -7,8 +7,8 @@ const ButtonStyled = styled.button`
   font: inherit;
   font-weight: bold;
   font-size: 15px;
-  background: #877283;
-  border: solid #877283;
+  background: none;
+  border: none;
   color: white;
   margin-right: 1em;
   cursor: pointer;

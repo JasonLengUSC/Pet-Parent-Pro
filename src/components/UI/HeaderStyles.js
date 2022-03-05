@@ -20,12 +20,13 @@ const HeaderStyled = styled.header`
     height: 8rem;
   }
 `;
+
 const HeaderPrimary = styled.div`
   top: 0;
   left: 0;
   width: 100%;
   height: 5rem;
-  background-color: #877283;
+  background-color: none;
   color: white;
   display: flex;
   flex-direction: row;
@@ -35,21 +36,7 @@ const HeaderPrimary = styled.div`
   border: 0;
   margin: 0;
 `;
-const HeaderSign = styled.div`
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5rem;
-  background-color: #877283;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0;
-  border: 0;
-  margin: 0;
-`;
+
 const SiteName = styled.h1`
   font-weight: bold;
   color: white;
@@ -66,6 +53,20 @@ const NavLinkStyled = styled(NavLink)`
     color: white;
     font-weight: bold;
   }
+`;
+
+const HeaderSign = styled.div`
+  width: 100%;
+  height: 5rem;
+  background-color: none;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  margin: 0;
 `;
 
 const MainImgWrapper = styled.div`
@@ -85,8 +86,8 @@ const MainImgWrapper = styled.div`
 export {
   HeaderStyled,
   HeaderPrimary,
-  HeaderSign,
   SiteName,
   NavLinkStyled,
+  HeaderSign,
   MainImgWrapper,
 };
