@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { DUMMY_DOG_DETAILS } from "../../datas/mockDatas/DummyDogDetail";
 import detailDogImage from "../../assets/dummy-dog-detail-image.jpg";
-
 import DogContactInfo from "../../components/UserBehavior/DogContactInfo";
 
 import { Carousel } from "antd";
