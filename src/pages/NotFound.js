@@ -1,9 +1,9 @@
-import ImageHeader from "../components/UI/ImageHeader";
+import HeaderWithImage from "../components/UI/HeaderWithImage";
 
 const NotFound = () => {
   return (
     <>
-      <ImageHeader />
+      <HeaderWithImage />
       <h1>Page not found!</h1>
     </>
   );

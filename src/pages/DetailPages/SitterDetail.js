@@ -5,6 +5,8 @@ import { DUMMY_SITTER_DETAILS } from "../../datas/mockDatas/DummySitterDetail";
 import { ratingIcons } from "../../datas/staticDatas/SitterRatingIcon";
 import { experienceColorMapping } from "../../datas/staticDatas/ExperienceColorMapping";
 
+import SitterContactInfo from "../../components/UserBehavior/SitterContactInfo";
+
 import { Rate, Tag } from "antd";
 
 import {
@@ -30,15 +32,15 @@ const SitterDetail = () => {
         <Link to={`/sitters`}>
           <BackArrow />
         </Link>
-          <HeadLine>{sitter.sitterId}'s Detail </HeadLine>
+        <HeadLine>{sitter.sitterId}'s Detail </HeadLine>
         <WrapFigure>
-          <Tag
-            color={experienceColorMapping[sitter.tag]}
-          >
-            {sitter.tag}
-          </Tag>
+          <Tag color={experienceColorMapping[sitter.tag]}>{sitter.tag}</Tag>
           <Rate
-            style={{ color: "#ffe4bd", marginLeft: "60px", marginBottom: "50px" }}
+            style={{
+              color: "#ffe4bd",
+              marginLeft: "60px",
+              marginBottom: "50px",
+            }}
             defaultValue={sitter.rating}
             character={({ index }) => ratingIcons[index]}
             disabled
@@ -51,6 +53,7 @@ const SitterDetail = () => {
           <h3>{sitter.region}</h3>
           <h2>Description: </h2>
           <p>{sitter.description}</p>
+          <SitterContactInfo sitterId={sitter.sitterId} />
         </WrapFigure>
       </PageWrapper>
     </>

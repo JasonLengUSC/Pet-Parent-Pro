@@ -2,27 +2,24 @@ import styled from "styled-components";
 
 const WrapDiv = styled.div`
   position: fixed;
-  top: 25rem;
-  left: 20px;
+  top: 12rem;
+  left: 15px;
   display: block;
   text-decoration: none;
-  padding: 10px 20px;
+  color: white;
+  padding: 10px 30px;
   width: 100%;
   max-width: 14em;
-  text-align: center;
+  text-align: left;
   & h3 {
     font-weight: bold;
-    color: #e3e3e3;
+    color: white;
     margin-left: 5px;
-  }
-  & p {
-    font-size: 15px;
-    color: #e3e3e3;
-    text-align: left;
-    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
   @media (max-width: 1220px) {
-    left:2px;
+    top: 19rem;
     font-size: smaller;
   }
 `;

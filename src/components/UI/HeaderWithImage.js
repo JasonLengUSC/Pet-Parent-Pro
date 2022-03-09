@@ -1,4 +1,4 @@
-import MainHeader from "./MainHeader";
+import MainHeader from "./HeaderPlain";
 import { MainImgWrapper } from "./HeaderStyles";
 
 import headerDogImage from "../../assets/header-dogs.jpeg";

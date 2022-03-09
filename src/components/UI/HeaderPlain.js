@@ -1,21 +1,22 @@
 import { FaHome, FaDog, FaPeopleArrows, FaInfo } from "react-icons/fa";
 
-import { useState, Fragment } from "react";
-import { useHistory } from "react-router-dom";
-
-import {
-  HeaderStyled,
-  HeaderPrimary,
-  HeaderSign,
-  SiteName,
-  NavLinkStyled,
-} from "./HeaderStyles";
+import { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
 
 import NavButton from "./NavButton";
 import SignIn from "../UserBehavior/SignIn";
 import Register from "../UserBehavior/Register";
 import SignOut from "../UserBehavior/SignOut";
 
+import { MailOutlined } from "@ant-design/icons";
+
+import {
+  HeaderStyled,
+  HeaderPrimary,
+  SiteName,
+  NavLinkStyled,
+  HeaderSign,
+} from "./HeaderStyles";
 
 const headerItems = [
   {
@@ -99,10 +100,20 @@ const Header = (props) => {
           {[...navBtnArr]}
         </HeaderPrimary>
         <HeaderSign>
+          <Link to={"/message"}>
+            <MailOutlined
+              style={{
+                fontSize: "25px",
+                marginRight: "25px",
+                color: "rgba(255, 255, 255, 0.7)",
+              }}
+            />
+          </Link>
+
           {login ? (
             <>
-            <NavButton onClick={showLogoutModalHandler}>Sign Out</NavButton>
-            {showLogoutModal && <SignOut onClose={hideLogoutModalHandler} />}
+              <NavButton onClick={showLogoutModalHandler}>Sign Out</NavButton>
+              {showLogoutModal && <SignOut onClose={hideLogoutModalHandler} />}
             </>
           ) : (
             <>

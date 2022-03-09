@@ -1,29 +1,32 @@
 import { useState } from "react";
 import moment from "moment";
 
-import Modal from "../components/UI/Modal";
+import Modal from "../UI/Modal";
 
-import { Form, Input, Select, Rate, DatePicker } from "antd";
+import {
+  Form,
+  Input,
+  Select,
+  DatePicker,
+  // message,
+  // Upload,
+  // Button,
+} from "antd";
+
 import {
   UserOutlined,
+  EditOutlined,
   FieldTimeOutlined,
   EnvironmentOutlined,
 } from "@ant-design/icons";
-import { FrownOutlined, MehOutlined, SmileOutlined } from "@ant-design/icons";
 
 import { SubmitButton, ButtonStyled } from "./FormButtonStyles";
+
+// import { UploadOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
-
-const ratingIcons = {
-  1: <FrownOutlined />,
-  2: <FrownOutlined />,
-  3: <MehOutlined />,
-  4: <SmileOutlined />,
-  5: <SmileOutlined />,
-};
 
 const layout = {
   wrapperCol: { offset: 4, span: 16 },
@@ -32,37 +35,66 @@ const tailLayout = {
   wrapperCol: { offset: 5, span: 15 },
 };
 
-const SitterForm = (props) => {
+// const normFile = (e) => {
+//   if (Array.isArray(e)) {
+//     return e;
+//   }
+//   return e && e.fileList;
+// };
+
+// const getBase64 = (img, callback) => {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", () => callback(reader.result));
+//   reader.readAsDataURL(img);
+// };
+
+// const beforeUploadHandler = (file) => {
+//   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+//   if (!isJpgOrPng) {
+//     message.error("You can only upload JPG/PNG file!");
+//   }
+//   const isLt2M = file.size / 1024 / 1024 < 2;
+//   if (!isLt2M) {
+//     message.error("Image must smaller than 2MB!");
+//   }
+//   return isJpgOrPng && isLt2M;
+// };
+
+const DogForm = (props) => {
   const [form] = Form.useForm();
   const currentdate = new Date();
   const timeString = currentdate.toLocaleString();
   const [location, setLocation] = useState("");
-  const [size, setSize] = useState("any");
+  const [breed, setBreed] = useState([]);
   const [description, setDescription] = useState("");
   const [dateRange, setDateRange] = useState([moment(), moment()]);
+  // const [imgUrl, setImgUrl] = useState("");
 
   const changeLocationHandler = (e) => {
     setLocation(e.target.value);
+  };
+  const changeBreedHandler = (value) => {
+    setBreed(value);
   };
   const changeDateRangeHandler = (dates) => {
     if (dates) {
       setDateRange([...dates]);
     }
   };
-  const changeSizeHandler = (value) => {
-    setSize(value);
-  };
   const changeDescriptionHandler = (e) => {
     setDescription(e.target.value);
   };
-
-  const submitSitterForm = () => {
+  // const uploadHandler = (info) => {
+  //   getBase64(info.file.originFileObj, (imageUrl) => {
+  //     setImgUrl(imageUrl);
+  //   });
+  // };
+  const submitFormHandler = () => {
     const formData = {
       name: props.userInfo.username,
-      rating: props.userInfo.rating,
       time: timeString,
       location,
-      size,
+      breed,
       description,
       dateRange,
     };
@@ -76,24 +108,36 @@ const SitterForm = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
-      <h1>Providing Service as Sitter</h1>
-      <Form {...layout} form={form} onFinish={submitSitterForm}>
+      <h1>Looking for Boarding Service</h1>
+      <Form {...layout} form={form} onFinish={submitFormHandler}>
         <Form.Item name="username" initialValue={props.userInfo.username}>
           <Input
-            prefix={<UserOutlined style={{ "marginRight": "10px" }} />}
+            prefix={<UserOutlined style={{ marginRight: "10px" }} />}
             disabled
           />
         </Form.Item>
         <Form.Item name="date" initialValue={timeString}>
           <Input
-            prefix={<FieldTimeOutlined style={{ "marginRight": "10px" }} />}
+            prefix={<FieldTimeOutlined style={{ marginRight: "10px" }} />}
             disabled
           />
         </Form.Item>
-        <Form.Item name="rating" initialValue={props.userInfo.rating}>
-          <Rate character={({ index }) => ratingIcons[index + 1]} disabled />
-        </Form.Item>
 
+        <Form.Item
+          name="dogName"
+          rules={[
+            {
+              required: true,
+              message: "Please enter your dog's name!",
+            },
+          ]}
+        >
+          <Input
+            placeholder="Enter your dog's name here"
+            prefix={<EditOutlined style={{ marginRight: "10px" }} />}
+            onChange={changeLocationHandler}
+          />
+        </Form.Item>
         <Form.Item
           name="region"
           rules={[
@@ -105,7 +149,7 @@ const SitterForm = (props) => {
         >
           <Input
             placeholder="Enter your region here"
-            prefix={<EnvironmentOutlined style={{ "marginRight": "10px" }} />}
+            prefix={<EnvironmentOutlined style={{ marginRight: "10px" }} />}
             onChange={changeLocationHandler}
           />
         </Form.Item>
@@ -122,23 +166,24 @@ const SitterForm = (props) => {
           <RangePicker onCalendarChange={changeDateRangeHandler} />
         </Form.Item>
         <Form.Item
-          name="size"
+          name="breed"
           rules={[
             {
               required: true,
-              message: 'Please choose a dog size or select "Any"',
+              message: "Please choose your dog's breed!",
             },
           ]}
         >
           <Select
-            placeholder='Choose a dog size or select "Any"'
-            allowClear
-            onChange={changeSizeHandler}
+            showSearch
+            placeholder="Choose the your dog's breed here"
+            value={breed}
+            allowClear={true}
+            onChange={changeBreedHandler}
           >
-            <Option value="any">Any</Option>
-            <Option value="small">Small: 0lbs - 15lbs</Option>
-            <Option value="medium">Medium: 16lbs - 40lbs</Option>
-            <Option value="large">Large: 41lbs - 100lbs</Option>
+            {props.breedList.map((breed) => (
+              <Option key={breed}>{breed}</Option>
+            ))}
           </Select>
         </Form.Item>
         <Form.Item
@@ -146,7 +191,7 @@ const SitterForm = (props) => {
           rules={[
             {
               required: true,
-              message: "Please Share some more info about yourself!",
+              message: "Please Share some more info about your dog!",
             },
           ]}
         >
@@ -154,10 +199,30 @@ const SitterForm = (props) => {
             rows={4}
             showCount
             maxLength={400}
-            placeholder="Say something about yourself here"
+            placeholder="Say something about your dog here"
             onChange={changeDescriptionHandler}
           />
         </Form.Item>
+        {/* <Form.Item
+        name="Attached File"
+        label="Attachment"
+        rules={[
+          {
+            required: true,
+            message: "Upload pics of your dog",
+          },
+        ]}
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+      >
+        <Upload 
+        beforeUpload={beforeUploadHandler} 
+        onChange={uploadHandler}
+        action="~/Desktop"
+        >
+          <Button icon={<UploadOutlined />}>Upload</Button>
+        </Upload>
+      </Form.Item> */}
         <Form.Item {...tailLayout}>
           <SubmitButton htmlType="submit">Submit</SubmitButton>
           <ButtonStyled htmlType="button" onClick={resetForm}>
@@ -172,4 +237,4 @@ const SitterForm = (props) => {
   );
 };
 
-export default SitterForm;
+export default DogForm;

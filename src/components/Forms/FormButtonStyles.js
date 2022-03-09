@@ -11,7 +11,6 @@ const SubmitButton = styled.button`
   color: white;
   margin-top: 1em;
   margin-right: 2em;
-  cursor: pointer;
   &:hover,
   &:active {
     color: white;
@@ -29,7 +28,6 @@ const ButtonStyled = styled.button`
   color: white;
   margin-top: 1em;
   margin-right: 2em;
-  cursor: pointer;
   &:hover,
   &:active {
     background: #9b9ea3;
