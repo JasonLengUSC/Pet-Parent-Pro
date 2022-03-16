@@ -83,20 +83,37 @@ passowrd:
 
 ### User sign up and login
 
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SignUp.png">
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SignIn.png"/>
+
 <br>
 
 ### Home page and About page
 
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/HomePage.png"/>
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/About%20Page.png"/>
+
 <br>
 
 ### Dog page and card detail
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/DogPage.png"/>
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/DogDetail.png"/>
 
 <br>
 
 ### Sitter page and card detial
 
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SitterPage.png">
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SitterDetail.png">
+
 <br>
 
 ### Post as sitter or dog owner
 
-<br>
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/PostSitter.png">
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/PostDog.png">
