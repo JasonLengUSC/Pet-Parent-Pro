@@ -6,8 +6,6 @@ This project is a single-page application (SPA) based on **React.JS**, mainly pr
 
 ## Git Instruction
 
----
-
 ### Clone the repository
 
 ```
@@ -39,8 +37,6 @@ passowrd:
 
 ## Features
 
----
-
 - User sign up, log in and log out
 
 - Home page and About page
@@ -61,8 +57,6 @@ passowrd:
 
 ## Technology Stack
 
----
-
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 
 - [React Router](https://reacttraining.com/react-router/web/guides/philosophy) - Declarative routing for React web applications
@@ -78,8 +72,6 @@ passowrd:
 <br>
 
 ## Demo
-
----
 
 ### User sign up and login
 
