@@ -6,18 +6,19 @@ import { FilterOutlined } from "@ant-design/icons";
 import { WrapDiv } from "./SitterFilterStyles";
 
 const { Option } = Select;
-const RatingOptions = ["1 Start", "2 Stars", "3 Stars", "4 Stars", "5 Stars"];
+const RatingOptions = ["Any","1 Start", "2 Stars", "3 Stars", "4 Stars", "5 Stars"];
 const LocationOptions = ["LA", "WA", "VA", "FL", "AZ", "MN"];
 const sizeOptions = [
+  "Any",
   "Small: 0lbs - 15lbs",
   "Medium: 16lbs - 40lbs",
   "Large: 41lbs - 100lbs",
 ];
 
 const SitterFilter = (props) => {
-  const [rating, setCheckedRating] = useState([]);
-  const [location, setLocation] = useState([]);
-  const [preferedsize, sePreferedsize] = useState([]);
+  const [rating, setCheckedRating] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [preferedsize, sePreferedsize] = useState(null);
 
   const changeRatingHandler = (value) => {
     setCheckedRating(value);
