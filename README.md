@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# PET PARENT PRO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a single-page application (SPA) based on **React.JS**, mainly providing dog boarding service which enables users to find a trusted pet sitter, become a sitter, interact with, and provide feedback to other users, and established the community for pet owners.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## Git Instruction
 
-### `npm start`
+### Clone the repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+git clone https://github.com/JasonLengUSC/Pet-Parent-Pro.git
+cd Pet-Parent-Pro
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+### In the project directory, you can run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes. You may also see any lint errors in the console.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Visitor Login: (will be availale soon)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+username:
+passowrd:
+```
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- User sign up, log in and log out
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Home page and About page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Dog page: Find a dog to provide the boarding service
 
-## Learn More
+- Sitter page: Find a trusted sitter
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Post either dog information or sitter information\
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Future work:**
 
-### Code Splitting
+- Web message implementation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- NodeJs based backend
 
-### Analyzing the Bundle Size
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technology Stack
 
-### Making a Progressive Web App
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [React Router](https://reacttraining.com/react-router/web/guides/philosophy) - Declarative routing for React web applications
 
-### Advanced Configuration
+- [Antd](https://ant.design/) - An enterprise-class UI design language and React UI library with a set of high-quality React components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Future TS:**
 
-### Deployment
+- [Redux](https://redux.js.org/) - JavaScript library for managing and centralizing application state
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [NodeJS](https://nodejs.org/en/) - JavaScript runtime environment
 
-### `npm run build` fails to minify
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Demo
+
+### User sign up and login
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SignUp.png">
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SignIn.png"/>
+
+<br>
+
+### Home page and About page
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/HomePage.png"/>
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/About%20Page.png"/>
+
+<br>
+
+### Dog page and card detail
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/DogPage.png"/>
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/DogDetail.png"/>
+
+<br>
+
+### Sitter page and card detial
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SitterPage.png">
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/SitterDetail.png">
+
+<br>
+
+### Post as sitter or dog owner
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/PostSitter.png">
+
+<img src="https://github.com/JasonLengUSC/Pet-Parent-Pro/blob/filterAndMessage/src/assets/DemoImg/PostDog.png">

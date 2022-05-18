@@ -6,10 +6,10 @@ import { WrapDiv } from "./DogFilterStyles";
 
 const { Option } = Select;
 const LocationOptions = ["LA", "WA", "VA", "FL", "AZ", "MN"];
-const breedList = [];
+const breedList = ["Any"];
 
 const DogFilter = (props) => {
-  const [breedOptions, setBreedOptions] = useState([]);
+  const [breedOptions, setBreedOptions] = useState("");
 
   useEffect(() => {
     fetchBreedListHandler();
@@ -68,7 +68,9 @@ const DogFilter = (props) => {
           style={{ marginLeft: "5px", width: 175 }}
         >
           {LocationOptions.map((location) => (
-            <Option key={location} value={location}>{location}</Option>
+            <Option key={location} value={location}>
+              {location}
+            </Option>
           ))}
         </Select>
         <h3>Breed</h3>
